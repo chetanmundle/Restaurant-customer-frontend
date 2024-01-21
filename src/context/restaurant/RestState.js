@@ -1,47 +1,35 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Firstpage from "./components/Firstpage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomeMenu from "./components/Homemenu";
-import Test from "./components/Test";
-import Cart from "./components/Cart";
-import Bill from "./components/Bill";
-import Pay from "./components/Pay";
-import Orderagain from "./components/Orderagain";
-// import Samosa from "./images/foodidimg/samosa.jpg";
-// import Chicken_Biryani from "./images/foodidimg/chicken_biryani.jpg";
-// import Tandoori_fish from "./images/foodidimg/tandoori_fish.jpg";
-// import Buttor_chicken from "./images/foodidimg/buttor_chicken.jpg";
-// import panipuri from "./images/foodidimg/chicken_biryani.jpg";
-// import vada from "./images/foodidimg/Vada.jpg";
-// import hyderabadi_biryani from "./images/foodidimg/hyderabadi_biryani.jpg";
-// import calcutta_biryani from "./images/foodidimg/Calcutta Biryani.jpg";
-// import bombay_biryani from "./images/foodidimg/chicken_biryani.jpg";
-// import pepperoni_pizza from "./images/foodidimg/Pepperoni Pizza.jpg";
-// import cheese_pizza from "./images/foodidimg/Cheese Pizza.jpg";
-// import meat_pizza from "./images/foodidimg/Meat Pizza.jpg";
-// import hawaiian_pizza from "./images/foodidimg/Hawaiian Pizza.jpg";
-// import pumpkin_soup from "./images/foodidimg/Pumpkin soup.jpg";
-// import tomato_soup from "./images/foodidimg/tomato soup.jpg";
-// import potato_soup from "./images/foodidimg/Potato soup.jpg";
-// import lamb_hamburger from "./images/foodidimg/Hamburger.jpg";
-// import cheese_burger from "./images/foodidimg/Cheese burger.jpg";
-// import snackburger from "./images/foodidimg/snack burger.jpg";
-// import greek_salad from "./images/foodidimg/Greek salad.jpg";
-// import berry_salad from "./images/foodidimg/berry salad.jpg";
-// import meal_salad from "./images/foodidimg/meal salad.jpg";
-// import egg_roll from "./images/foodidimg/Egg roll.jpg";
-// import spring_roll from "./images/foodidimg/spring-roll.jpg";
-// import veg_biryani from "./images/foodidimg/veg biryani.jpg";
-// import { useState } from "react";
-import VegNonvegFood from "./components/VegNonvegFood";
-import Test2 from "./components/Test2";
-import FoodDetails from "./components/FoodDetails";
-import Foodtypes from "./components/Foodtypes";
-import RestState from "./context/restaurant/RestState";
-// import Test from "./components/Test";
+import React, { useEffect, useState } from "react";
+import RestContext from "./restContext";
+// import Samosa from "../../images"
+import Samosa from "../../images/foodidimg/samosa.jpg";
+import Chicken_Biryani from "../../images/foodidimg/chicken_biryani.jpg";
+import Tandoori_fish from "../../images/foodidimg/tandoori_fish.jpg";
+import Buttor_chicken from "../../images/foodidimg/buttor_chicken.jpg";
+import panipuri from "../../images/foodidimg/panipuri.jpg";
+import vada from "../../images/foodidimg/Vada.jpg";
+import hyderabadi_biryani from "../../images/foodidimg/hyderabadi_biryani.jpg";
+import calcutta_biryani from "../../images/foodidimg/Calcutta Biryani.jpg";
+import bombay_biryani from "../../images/foodidimg/Bombay Biryani.jpg";
+import pepperoni_pizza from "../../images/foodidimg/Pepperoni Pizza.jpg";
+import cheese_pizza from "../../images/foodidimg/Cheese Pizza.jpg";
+import meat_pizza from "../../images/foodidimg/Meat Pizza.jpg";
+import hawaiian_pizza from "../../images/foodidimg/Hawaiian Pizza.jpg";
+import pumpkin_soup from "../../images/foodidimg/Pumpkin soup.jpg";
+import tomato_soup from "../../images/foodidimg/tomato soup.jpg";
+import potato_soup from "../../images/foodidimg/Potato soup.jpg";
+import lamb_hamburger from "../../images/foodidimg/Hamburger.jpg";
+import cheese_burger from "../../images/foodidimg/Cheese burger.jpg";
+import snackburger from "../../images/foodidimg/snack burger.jpg";
+import greek_salad from "../../images/foodidimg/Greek salad.jpg";
+import berry_salad from "../../images/foodidimg/berry salad.jpg";
+import meal_salad from "../../images/foodidimg/meal salad.jpg";
+import egg_roll from "../../images/foodidimg/Egg roll.jpg";
+import spring_roll from "../../images/foodidimg/spring-roll.jpg";
+import veg_biryani from "../../images/foodidimg/veg biryani.jpg";
 
-function App() {
+const RestState = (props) => {
+  const [restid, setRestid] = useState(1);
+  const [tableid, setTableid] = useState(1);
   // const [foodData, setFoodData] = useState([
   //   {
   //     id: 1,
@@ -540,40 +528,136 @@ function App() {
   //       "A flavorful and aromatic rice dish made with fragrant basmati rice, mixed vegetables, and a blend of spices. Slow-cooked to perfection, it delivers a delightful and wholesome vegetarian biryani experience.",
   //   },
   // ]);
-  return (
-    <>
-      <RestState>
-        <Router>
-          <Routes>
-            {/* <Route path="/test" element={<Test />} /> */}
-            <Route path="/" element={<Firstpage />} />
-            <Route
-              path="/homemenu"
-              element={<HomeMenu  />}
-            />
-            <Route path="/test" element={<Test />} />
-            <Route path="/test2" element={<Test2 />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/bill" element={<Bill />} />
-            <Route path="/pay" element={<Pay />} />
-            <Route path="/orderagain" element={<Orderagain />} />
-            <Route
-              path="/vegnonvegfood/:vegnonvegdata"
-              element={<VegNonvegFood />}
-            />
-            <Route
-              path="/fooddetails/:foodid"
-              element={<FoodDetails />}
-            />
-            <Route
-              path="/perticularfoodtype/:type/:basefoodname"
-              element={<Foodtypes  />}
-            />
-          </Routes>
-        </Router>
-      </RestState>
-    </>
-  );
-}
+  const [foodData, setFoodData] = useState([]);
 
-export default App;
+  const [cartItem, setCartItem] = useState([]);
+  const [totalBill, setTotalBill] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:8080/menu/getallmenus/1"
+        );
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setFoodData(data); // Assuming the response is an array of menu items
+        
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // console.log("foodData : ",foodData);
+
+  useEffect(() => {
+    // Calculate totalBill based on discounted prices
+    const calculateTotalBill = () => {
+      let total = 0;
+
+      // Iterate through each item in cartItem
+      cartItem.forEach((item) => {
+        // Assuming each item has a property 'discountedPrice'
+        if (item.discountedPrice) {
+          total += item.discountedPrice;
+        }
+        // You can modify the condition based on your actual data structure
+      });
+
+      // Set the totalBill state with the calculated total
+      setTotalBill(total);
+    };
+
+    // Call the function to calculate totalBill
+    calculateTotalBill();
+  }, [cartItem]);
+
+  // save data in loacal Strorage
+  useEffect(() => {
+    localStorage.setItem("restid", JSON.stringify(restid));
+    localStorage.setItem("tableid", JSON.stringify(tableid));
+  }, [restid, tableid]);
+
+  // Function to add item to cart based on id
+  const addToCart = (id) => {
+    const selectedItem = foodData.find((item) => item.id === id);
+
+    // Check if the item is already in the cart
+    const isItemInCart = cartItem.find((item) => item.id === id);
+
+    if (!isItemInCart) {
+      // Calculate the discounted price
+      const discountedPrice =
+        selectedItem.price - (selectedItem.price * selectedItem.discount) / 100;
+
+      // If not in cart, add the item to the cartItem state with quantity set to 1 and discounted price
+      setCartItem((prevCart) => [
+        ...prevCart,
+        { ...selectedItem, quantity: 1, discountedPrice },
+      ]);
+    }
+  };
+
+  // Function to increment the quantity of an item in the cart
+  const incrementQuantity = (id) => {
+    setCartItem((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              discountedPrice:
+                (item.price - (item.price * item.discount) / 100) *
+                (item.quantity + 1),
+            }
+          : item
+      )
+    );
+  };
+
+  // Function to decrement the quantity of an item in the cart
+  const decrementQuantity = (id) => {
+    setCartItem(
+      (prevCart) =>
+        prevCart
+          .map((item) =>
+            item.id === id
+              ? {
+                  ...item,
+                  quantity: item.quantity - 1,
+                  discountedPrice:
+                    (item.price - (item.price * item.discount) / 100) *
+                    (item.quantity - 1),
+                }
+              : item
+          )
+          .filter((item) => item.quantity > 0) // Remove items with quantity 0
+    );
+  };
+
+  return (
+    <RestContext.Provider
+      value={{
+        restid,
+        tableid,
+        foodData,
+        addToCart,
+        cartItem,
+        incrementQuantity,
+        decrementQuantity,
+        totalBill,
+      }}
+    >
+      {props.children}
+    </RestContext.Provider>
+  );
+};
+
+export default RestState;
