@@ -355,7 +355,8 @@ body {
     @apply col-span-3 text-yellow-500 ml-3;
   }
   .cart_firstcarddiv {
-    @apply bg-gray-200 mt-28 rounded-t-3xl text-black pb-24;
+    @apply bg-gray-200 mt-12 rounded-3xl text-black pb-72;
+    
   }
   .cart_secondcarddiv {
     @apply text-center pt-10;
@@ -718,6 +719,49 @@ body {
   .nameoffood_sortselect_btn {
     @apply bg-transparent text-yellow-500 font-semibold   px-2 border border-yellow-500 hover:border-transparent hover:bg-yellow-400 hover:text-white rounded-full;
   }
+
+  /* mobile view of the  */
+  .invoice_invoice{
+    @apply font-bold ;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .invoice_hr{
+    @apply mx-10 mt-6 mb-5 border-t-2 border-black;
+  }
+
+  .invoce_heading{
+    @apply grid grid-cols-12;
+  }
+
+  .invoice_nameheading{
+    @apply col-span-6 pl-2 font-bold;
+    font-size: 1.2rem;
+  }
+  .invoice_qtheading{
+    @apply ml-2 font-bold;
+    font-size: 1.2rem;
+  }
+  .invoice_priceheading {
+    @apply pl-5 font-bold ;
+    font-size: 1.2rem;
+  }
+
+  .invoice_foodname{
+    @apply col-span-6 pl-2;
+    font-size: 1rem;
+  }
+  .invoice_foodqt {
+    @apply ml-2;
+    font-size: 1rem;
+  }
+
+  .invoice_foodrate{
+    @apply pl-5;
+    font-size: 1rem;
+  }
+
 }
 
 /* media for the tablet view */

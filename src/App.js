@@ -39,6 +39,7 @@ import Test2 from "./components/Test2";
 import FoodDetails from "./components/FoodDetails";
 import Foodtypes from "./components/Foodtypes";
 import RestState from "./context/restaurant/RestState";
+import Invoice from "./components/Invoice";
 // import Test from "./components/Test";
 
 function App() {
@@ -547,27 +548,22 @@ function App() {
           <Routes>
             {/* <Route path="/test" element={<Test />} /> */}
             <Route path="/" element={<Firstpage />} />
-            <Route
-              path="/homemenu"
-              element={<HomeMenu  />}
-            />
+            <Route path="/homemenu" element={<HomeMenu />} />
             <Route path="/test" element={<Test />} />
             <Route path="/test2" element={<Test2 />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/bill" element={<Bill />} />
             <Route path="/pay" element={<Pay />} />
             <Route path="/order" element={<Orderagain />} />
+            <Route path="/invoice" element={<Invoice />} />
             <Route
               path="/vegnonvegfood/:vegnonvegdata"
               element={<VegNonvegFood />}
             />
-            <Route
-              path="/fooddetails/:foodid"
-              element={<FoodDetails />}
-            />
+            <Route path="/fooddetails/:foodid" element={<FoodDetails />} />
             <Route
               path="/perticularfoodtype/:type/:basefoodname"
-              element={<Foodtypes  />}
+              element={<Foodtypes />}
             />
           </Routes>
         </Router>
