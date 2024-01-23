@@ -23,6 +23,46 @@ const Firstpage = () => {
   // router.events.on("beforeExit", () => {
   //   setLoading(false); // Set loading to false when navigation is complete
   // });
+
+  const words = ["Food Courtyard"];
+  const [part, setPart] = useState("");
+  const [i, setI] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const [forwards, setForwards] = useState(true);
+  const [skipCount, setSkipCount] = useState(0);
+  const skipDelay = 15;
+  const speed = 70;
+
+  useEffect(() => {
+    const wordFlickInterval = setInterval(() => {
+      if (forwards) {
+        if (offset >= words[i].length) {
+          setSkipCount((prevSkipCount) => prevSkipCount + 1);
+          if (skipCount === skipDelay) {
+            setForwards(false);
+            setSkipCount(0);
+          }
+        }
+      } else {
+        if (offset === 0) {
+          setForwards(true);
+          setI((prevI) => (prevI + 1) % words.length);
+          setOffset(0);
+        }
+      }
+
+      const newPart = words[i].substr(0, offset);
+      if (skipCount === 0) {
+        setOffset((prevOffset) => (forwards ? prevOffset + 1 : prevOffset - 1));
+      }
+
+      setPart(newPart);
+    }, speed);
+
+    return () => {
+      clearInterval(wordFlickInterval); // Clear the interval on component unmount
+    };
+  }, [forwards, offset, i, skipCount, words]);
   return (
     <div className={`firstpage_container `}>
       <div className="firstpage_staic_div1"></div>
@@ -33,11 +73,14 @@ const Firstpage = () => {
         <div>
           {/* {foodname[3].name} */}
           <div className="firstpage_welcome">WELCOME TO</div>
-          <div className="firstpage_food">Food Courtyard</div>
+          {/* <div className="firstpage_food ">Food Courtyard</div> */}
+          <div className="firstpage_typewriter-container">
+            <div className="firstpage_word firstpage_food">{part}</div>
+          </div>
         </div>
         <div className="">
-          <div className="firstpage_areyou">Are You</div>
-          <div className="firstpage_areyou">Hungry</div>
+          <div className="firstpage_areyou">Are You Hungry</div>
+          {/* <div className="firstpage_areyou"></div> */}
         </div>
         <div className="">
           <div className="firstpage_btndiv">

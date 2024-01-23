@@ -66,8 +66,8 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-  .custom-toast{
-    width: 50%; 
+  .custom-toast {
+    width: 50%;
     height: 80px;
     left: 50%;
   }
@@ -98,8 +98,35 @@ body {
   }
 
   .firstpage_areyou {
-    @apply text-4xl font-bold pl-8 text-yellow-400;
+    @apply text-4xl font-bold pl-8 text-yellow-400 w-52 italic mt-28;
   }
+
+  .firstpage_typewriter-container{
+    @apply flex justify-center italic;
+  }
+
+  /* TypingAnimation.css */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+.firstpage_word {
+  position: fixed;
+  margin: auto;
+  color: white;
+  /* font: 700 normal 2.5em 'Tahoma'; */
+  text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white; /* Adjust the border style as needed */
+  animation: typing 3s steps(30) forwards;
+}
+
+/* Add any other styles you need for the component */
+
+  
 
   .firstpage_btndiv {
     @apply flex justify-center mt-40;
@@ -239,7 +266,7 @@ body {
   .homepage_popularfood {
     @apply ml-5 font-bold mt-3 text-2xl;
   }
-  .homepage_veg_ordernowdiv{
+  .homepage_veg_ordernowdiv {
     @apply mt-2;
   }
 
@@ -405,15 +432,15 @@ body {
     @apply mx-10 mt-5 border-t-2 border-black;
   }
   .bill_namerateimgdiv {
-    @apply grid grid-cols-12 pt-8 pl-8 text-sm font-semibold ;
+    @apply grid grid-cols-12 pt-8 pl-8 text-sm font-semibold;
   }
-  .bill_img{
+  .bill_img {
     @apply rounded-xl mt-1;
   }
   .bill_imgdiv {
     @apply col-span-1;
   }
-  .bill_foodqt{
+  .bill_foodqt {
     @apply ml-2;
   }
   .bill_foodname {
@@ -421,7 +448,7 @@ body {
     font-size: 1rem;
   }
 
-  .bill_foodrate{
+  .bill_foodrate {
     @apply pl-5;
   }
   .bill_secondhr {
@@ -480,11 +507,11 @@ body {
   .pay_billontable {
     @apply mt-10 font-semibold;
   }
-  .pay_totalmoneydiv{
+  .pay_totalmoneydiv {
     @apply font-semibold mt-3;
   }
 
-  .Pay_QR{
+  .Pay_QR {
     @apply shadow-2xl;
   }
 
@@ -503,7 +530,7 @@ body {
     /* position: absolute; */
   }
 
-  .fooddetails_yellostar{
+  .fooddetails_yellostar {
     @apply text-yellow-500;
   }
 
@@ -573,7 +600,8 @@ body {
   }
 
   .orderagain_firstcard {
-    @apply mt-16 pb-10 bg-slate-200 rounded-3xl pt-10 text-black;
+    @apply mt-10 pb-10 bg-slate-200 rounded-3xl pt-10 text-black;
+    height: 80vh;
   }
 
   .orderagain_secondcard {
@@ -586,6 +614,56 @@ body {
   .ordernow_browesmenubtn {
     @apply bg-yellow-600  text-black font-bold py-2 px-4 rounded-full;
   }
+
+  .orderagain_hotellogo {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .orderagain_logo {
+    height: 8rem;
+    width: 8rem;
+  }
+  .orderagain_tagline {
+    /* display: flex;
+    justify-content: center; */
+    @apply flex justify-center italic font-semibold;
+  }
+  .orderagain_animate-charcter {
+    text-transform: uppercase;
+    background-image: linear-gradient(
+      -225deg,
+      #231557 0%,
+      #44107a 29%,
+      #ff1361 67%,
+      #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    /* font-size: 30px; */
+  }
+
+  @keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
+  .orderagain_msg {
+    @apply flex justify-center font-semibold mt-5 mx-3;
+  }
+
+  .orderagain_orderjowbtn {
+    @apply bg-yellow-300 text-black font-bold w-44 py-3 rounded-full text-xl ml-1;
+  }
+
   /* roundeslider div */
   .roundslider_container {
     @apply flex items-center justify-center my-2;
@@ -600,15 +678,12 @@ body {
     @apply rounded-full h-16 w-16 flex items-center justify-center bg-slate-100  ml-2;
   }
 
-
   .test_imgdiv {
     @apply rounded-full h-16 w-16 flex items-center justify-center bg-slate-100  ml-2;
   }
-  .test_i{
+  .test_i {
     @apply rounded-full h-16 w-16 object-cover;
   }
-
-
 
   .roundslider_img {
     @apply rounded-full h-16 w-16;
@@ -662,10 +737,14 @@ body {
   }
   .firstpage_food {
     font-size: 4rem;
+    position: fixed;
     @apply text-center italic mt-12 font-bold text-white mb-28;
   }
   .firstpage_areyou {
-    @apply font-semibold ml-16 text-5xl;
+    @apply font-semibold ml-16 text-5xl mt-60;
+  }
+  .firstpage_typewriter-container{
+    @apply flex justify-center italic;
   }
   .firstpage_btndiv {
     @apply mt-40 text-center text-white;
@@ -844,7 +923,7 @@ body {
     font-size: xx-large;
     display: flex;
   }
- 
+
   /* .cardmenu_topdiv {
     @apply grid grid-cols-3;
   } */
@@ -969,7 +1048,7 @@ body {
     @apply text-2xl font-bold grid grid-cols-9 pt-5;
   }
 
-  .bill_foodqt{
+  .bill_foodqt {
     @apply mt-4;
   }
 
@@ -977,7 +1056,7 @@ body {
     @apply col-span-3 text-yellow-500 pb-2 pl-2;
   }
   .bill_firstdiv {
-    @apply bg-gray-300 mt-14 rounded-3xl text-black pb-32 ;
+    @apply bg-gray-300 mt-14 rounded-3xl text-black pb-32;
     height: 100vh;
   }
   .bill_secondcartdiv {
@@ -990,7 +1069,7 @@ body {
   .bill_paymentinvoice {
     @apply pt-3 font-bold text-3xl;
   }
-  .pay_totalmoneydiv{
+  .pay_totalmoneydiv {
     @apply font-semibold mt-3;
   }
   .bill_hr {
@@ -1003,7 +1082,7 @@ body {
     @apply col-span-6 pl-2 pt-4;
   }
   .bill_foodrate {
-    @apply pt-4 ;
+    @apply pt-4;
   }
   .bill_secondhr {
     @apply mx-10 mt-11 mb-5 border-t-2 border-black;
@@ -1025,7 +1104,7 @@ body {
     /* @apply ; */
   }
 
-  .bill_img{
+  .bill_img {
     @apply rounded-xl mt-3;
   }
 
@@ -1039,6 +1118,7 @@ body {
 
   .orderagain_firstcard {
     @apply mt-16 pb-10 bg-slate-200 rounded-3xl pt-10 text-black;
+    height: 80vh;
   }
 
   .orderagain_secondcard {
@@ -1051,6 +1131,58 @@ body {
   .ordernow_browesmenubtn {
     @apply bg-yellow-600  text-black font-bold py-2 px-4 rounded-full mt-5;
   }
+
+  .orderagain_hotellogo {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .orderagain_logo {
+    height: 12rem;
+    width: 12rem;
+  }
+  .orderagain_tagline {
+    /* display: flex;
+    justify-content: center; */
+    @apply flex justify-center italic font-semibold;
+    font-size: 2rem;
+  }
+  .orderagain_animate-charcter {
+    text-transform: uppercase;
+    background-image: linear-gradient(
+      -225deg,
+      #231557 0%,
+      #44107a 29%,
+      #ff1361 67%,
+      #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    /* font-size: 30px; */
+  }
+
+  @keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
+  .orderagain_msg {
+    @apply flex justify-center font-semibold mt-5 mx-3;
+    font-size: 2rem;
+  }
+
+  .orderagain_orderjowbtn {
+    @apply  bg-yellow-300 text-black font-bold px-2 rounded-full text-xl w-44 py-5 ml-20;
+  }
+
 
   /* pay page tablete view css */
   .pay_container {
@@ -1066,14 +1198,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
   }
 
   .pay_QRdiv {
-    @apply flex justify-center ;
+    @apply flex justify-center;
   }
 
-  .Pay_QR{
+  .Pay_QR {
     @apply shadow-2xl;
   }
 

@@ -556,7 +556,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/bill" element={<Bill />} />
             <Route path="/pay" element={<Pay />} />
-            <Route path="/orderagain" element={<Orderagain />} />
+            <Route path="/order" element={<Orderagain />} />
             <Route
               path="/vegnonvegfood/:vegnonvegdata"
               element={<VegNonvegFood />}
