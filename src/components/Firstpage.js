@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 // import { useHistory } from 'react-router-dom';
 
@@ -7,17 +7,24 @@ const Firstpage = () => {
   //   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [className, setClassName] = useState("firstpage_sweetalertinputs");
+  // const [restid, setRestid] = useState(1);
+  // const [tableid, setTableid] = useState(1);
 
+  // geting id of table and restauurant
+  const { restid1, tableid1 } = useParams();
 
-  useEffect(()=>{
+  // useEffect(() => {
+  //   localStorage.setItem("restid", JSON.stringify(restid));
+  //   localStorage.setItem("tableid", JSON.stringify(tableid));
+  // }, [restid, tableid]);
+
+  useEffect(() => {
     const handleResize = () => {
       const isMobile = window.innerWidth <= 767;
       setClassName(isMobile ? "firstpage_sweetalertinputs" : "swal2-input");
     };
-
-    // Initial setup
     handleResize();
-  },[])
+  }, []);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -28,8 +35,6 @@ const Firstpage = () => {
   }, []);
 
   const handlebtnClick = async () => {
-    
-
     const { value: formValues } = await Swal.fire({
       title: "Enter Your Details",
       html: `
@@ -132,7 +137,6 @@ const Firstpage = () => {
           </div>
         </div>
       </div>
-     
     </div>
   );
 };
