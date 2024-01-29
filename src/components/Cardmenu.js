@@ -14,7 +14,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
       try {
         const status = 1;
         const response = await fetch(
-          `http://localhost:8080/ordermenus/findmenusoftable/${JSON.parse(
+          `http://localhost:8080/ordermenus/findidsofcartitem/${JSON.parse(
             localStorage.getItem("restid")
           )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
           {

@@ -29,7 +29,7 @@ const FoodDetails = () => {
       try {
         const status = 1;
         const response = await fetch(
-          `http://localhost:8080/ordermenus/findmenusoftable/${JSON.parse(
+          `http://localhost:8080/ordermenus/findidsofcartitem/${JSON.parse(
             localStorage.getItem("restid")
           )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
           {
@@ -72,7 +72,9 @@ const FoodDetails = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/menu/getmenu/${foodid}`,
+          `http://localhost:8080/menu/getmenu/${JSON.parse(
+            localStorage.getItem("restid")
+          )}/${foodid}`,
           {
             method: "GET",
             headers: {
@@ -83,6 +85,7 @@ const FoodDetails = () => {
         if (response.ok) {
           const data = await response.json();
           setIsCurrentFood(true);
+          console.log("Current dATa : ", data);
           setCurrentFood(data);
         } else {
           console.log("Error to fetching data");

@@ -101,32 +101,30 @@ body {
     @apply text-4xl font-bold pl-8 text-yellow-400 w-52 italic mt-28;
   }
 
-  .firstpage_typewriter-container{
+  .firstpage_typewriter-container {
     @apply flex justify-center italic;
   }
 
   /* TypingAnimation.css */
-@keyframes typing {
-  from {
-    width: 0;
+  @keyframes typing {
+    from {
+      width: 0;
+    }
   }
-}
 
-.firstpage_word {
-  position: fixed;
-  margin: auto;
-  color: white;
-  /* font: 700 normal 2.5em 'Tahoma'; */
-  text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid white; /* Adjust the border style as needed */
-  animation: typing 3s steps(30) forwards;
-}
+  .firstpage_word {
+    position: fixed;
+    margin: auto;
+    color: white;
+    /* font: 700 normal 2.5em 'Tahoma'; */
+    text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid white; /* Adjust the border style as needed */
+    animation: typing 3s steps(30) forwards;
+  }
 
-/* Add any other styles you need for the component */
-
-  
+  /* Add any other styles you need for the component */
 
   .firstpage_btndiv {
     @apply flex justify-center mt-40;
@@ -166,6 +164,35 @@ body {
 
   .firstpage_staic_div2_parent {
     @apply flex content-end justify-end;
+  }
+
+  .firstpage_sweetalertinputs {
+    margin-bottom: 1rem;
+    box-shadow: inset #abacaf 0 0 0 2px;
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    appearance: none;
+    width: 100%;
+    position: relative;
+    border-radius: 3px;
+    padding: 9px 12px;
+    line-height: 1.4;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: 400;
+    height: 40px;
+    transition: all .2s ease;
+    :hover{
+        box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+    }
+    :focus{
+        background: #fff;
+        outline: 0;
+        box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
+    }
+
+    /* color: red;
+    border: 2px solid blue; */
   }
 
   /* menupage mobile view css */
@@ -356,7 +383,6 @@ body {
   }
   .cart_firstcarddiv {
     @apply bg-gray-200 mt-12 rounded-3xl text-black pb-72;
-    
   }
   .cart_secondcarddiv {
     @apply text-center pt-10;
@@ -572,7 +598,8 @@ body {
   }
 
   .foodid_addtocarddiv {
-    @apply fixed bottom-4 left-28 w-full;
+    @apply fixed bottom-4  w-full;
+    text-align: center;
   }
 
   .foodid_addtocardbtn {
@@ -721,35 +748,35 @@ body {
   }
 
   /* mobile view of the  */
-  .invoice_invoice{
-    @apply font-bold ;
+  .invoice_invoice {
+    @apply font-bold;
     font-size: 1.5rem;
     text-align: center;
   }
 
-  .invoice_hr{
+  .invoice_hr {
     @apply mx-10 mt-6 mb-5 border-t-2 border-black;
   }
 
-  .invoce_heading{
+  .invoce_heading {
     @apply grid grid-cols-12;
   }
 
-  .invoice_nameheading{
-    @apply col-span-6 pl-2 font-bold;
+  .invoice_nameheading {
+    @apply col-span-6 pl-2 font-bold ml-7;
     font-size: 1.2rem;
   }
-  .invoice_qtheading{
-    @apply ml-2 font-bold;
+  .invoice_qtheading {
+    @apply font-bold;
     font-size: 1.2rem;
   }
   .invoice_priceheading {
-    @apply pl-5 font-bold ;
+    @apply pl-5 font-bold;
     font-size: 1.2rem;
   }
 
-  .invoice_foodname{
-    @apply col-span-6 pl-2;
+  .invoice_foodname {
+    @apply col-span-6 pl-2 ml-4;
     font-size: 1rem;
   }
   .invoice_foodqt {
@@ -757,11 +784,15 @@ body {
     font-size: 1rem;
   }
 
-  .invoice_foodrate{
+  .invoice_foodrate {
     @apply pl-5;
     font-size: 1rem;
   }
 
+  .invoice_totalparentdiv {
+    @apply flex mx-20 justify-between font-bold;
+    font-size: 1.5rem;
+  }
 }
 
 /* media for the tablet view */
@@ -787,7 +818,7 @@ body {
   .firstpage_areyou {
     @apply font-semibold ml-16 text-5xl mt-60;
   }
-  .firstpage_typewriter-container{
+  .firstpage_typewriter-container {
     @apply flex justify-center italic;
   }
   .firstpage_btndiv {
@@ -1224,9 +1255,8 @@ body {
   }
 
   .orderagain_orderjowbtn {
-    @apply  bg-yellow-300 text-black font-bold px-2 rounded-full text-xl w-44 py-5 ml-20;
+    @apply bg-yellow-300 text-black font-bold px-2 rounded-full text-xl w-44 py-5 ml-20;
   }
-
 
   /* pay page tablete view css */
   .pay_container {

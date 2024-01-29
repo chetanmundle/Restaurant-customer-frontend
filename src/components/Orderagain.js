@@ -1,9 +1,58 @@
 import React from "react";
 import { FaArrowCircleLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import hotellogo from "../images/hotellogo.png";
+import Swal from "sweetalert2";
 
 const Orderagain = () => {
+  const navigate = useNavigate();
+
+  
+
+  const handalgenerateInvoice=()=>{
+  
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to Order Food Again!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Generate Invoice"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const changeData = async () => {
+          const response = await fetch(
+            `http://localhost:8080/ordermenus/status/changestatustothree/${JSON.parse(
+              localStorage.getItem("restid")
+            )}/${JSON.parse(localStorage.getItem("tableid"))}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+    
+          if (response.ok) {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Order Placed..!",
+              showConfirmButton: false,
+              timer: 2000
+            });
+            navigate("/invoice")
+          } else {
+            alert("something went wrong..! Unable to Generate Invoice");
+          }
+        };
+    
+        changeData();
+       
+      }
+    });
+  }
   return (
     <div className="orderagain_conatainer">
       <div className="orderagain_leftarrowdiv">
@@ -66,9 +115,10 @@ const Orderagain = () => {
             <Link to={"/homemenu"}>
               <button className="orderagain_orderjowbtn">Order Again</button>
             </Link>
-            <Link to={"/"}>
-              <button className="orderagain_orderjowbtn">Generate Invoice</button>
-            </Link>
+            {/* <Link to={"/invoice"}>
+              <button className="orderagain_orderjowbtn" >Generate Invoice</button>
+            </Link> */}
+            <button className="orderagain_orderjowbtn" onClick={handalgenerateInvoice}>Generate Invoice</button>
           </div>
         </div>
       </div>

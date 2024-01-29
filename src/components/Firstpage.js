@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 // import { useHistory } from 'react-router-dom';
 
 const Firstpage = () => {
   //   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  // const history = useHistory();
+  const [className, setClassName] = useState("firstpage_sweetalertinputs");
+
+
+  useEffect(()=>{
+    const handleResize = () => {
+      const isMobile = window.innerWidth <= 767;
+      setClassName(isMobile ? "firstpage_sweetalertinputs" : "swal2-input");
+    };
+
+    // Initial setup
+    handleResize();
+  },[])
+
+  const navigate = useNavigate();
   useEffect(() => {
     window.addEventListener("beforeunload", (event) => {
       event.preventDefault();
@@ -14,10 +28,33 @@ const Firstpage = () => {
   }, []);
 
   const handlebtnClick = async () => {
-    setLoading(true); // Set loading to true before navigation
-    console.log(11);
+    
 
-    // await router.push("/menulist");
+    const { value: formValues } = await Swal.fire({
+      title: "Enter Your Details",
+      html: `
+        <input id="cname" class="${className}" type="text" placeholder="Enter Your Name">
+        <input id="cphone" class="${className}" type="number" placeholder="Enter Your Mobile Number">
+      `,
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          document.getElementById("cname").value,
+          document.getElementById("cphone").value,
+        ];
+      },
+    });
+
+    if (formValues) {
+      const [cname, cphone] = formValues;
+      if (cname && cphone) {
+        localStorage.setItem("cname", JSON.stringify(cname));
+        localStorage.setItem("cphone", JSON.stringify(cphone));
+
+        navigate("/homemenu");
+      }
+    } else {
+    }
   };
 
   // router.events.on("beforeExit", () => {
@@ -84,59 +121,18 @@ const Firstpage = () => {
         </div>
         <div className="">
           <div className="firstpage_btndiv">
-            {/* <button className="firstpage_btn" onClick={handlebtnClick}>
-              Get Started */}
-            {/* {loading ? "Loading..." : "Get Started"}  */}
-            {/* </button> */}
-
-            {/* <Link href={`/menulist`}>
-              <button className="firstpage_btn" >
-                Get Started
-              </button>
-            </Link> */}
-            <Link to={"/homemenu"}>
+            {/* <Link to={"/homemenu"}>
               <button className="firstpage_btn" onClick={handlebtnClick}>
                 Get Started
               </button>
-            </Link>
+            </Link> */}
+            <button className="firstpage_btn" onClick={handlebtnClick}>
+              Get Started
+            </button>
           </div>
         </div>
       </div>
-      {loading && (
-        <div className="loading-overlay firstpage_loadingicon">
-          <div
-            id="loading-custom-icon"
-            className="h-[300px] w-full flex items-center justify-center"
-          >
-            <div
-              data-te-loading-management-init
-              data-te-parent-selector="#loading-custom-icon"
-            >
-              <div
-                data-te-loading-icon-ref
-                className="inline-block h-8 w-8 animate-spin border-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                role="status"
-              >
-                <span className="[&>svg]:w-8">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+     
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Invoice = () => {
       const response = await fetch(
         `http://localhost:8080/ordermenus/findmenusoftable/${JSON.parse(
           localStorage.getItem("restid")
-        )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
+        )}/${JSON.parse(localStorage.getItem("tableid"))}/${3}`,
         {
           method: "GET",
           headers: {
@@ -27,7 +27,7 @@ const Invoice = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("data item : ",data);
+        console.log("data item : ", data);
         setCartItems(data);
       } else if (response.status === 404) {
         setCartItems([]);
@@ -67,7 +67,7 @@ const Invoice = () => {
           </button>
         </Link> */}
 
-        <div className="pay_paybutton">Pay</div>
+        <div className="pay_paybutton">Invoice</div>
       </div>
       {/* first card */}
       <div className="pay_firstcard">
@@ -89,18 +89,19 @@ const Invoice = () => {
 
           <div className="pay_billontable">Pay your Bill on Table</div>
         </div> */}
-    
+
         <div>
-            <div className="invoice_invoice">Invoice</div>
+          <div className="invoice_invoice">Invoice</div>
         </div>
         <hr className="invoice_hr" />
         <div className="bill_namerateimgdiv">
-            <div className="invoice_nameheading">Name</div>
-            <div className="invoice_qtheading">Qt</div>
-            <div className="invoice_priceheading">Price</div>
+          <div className="invoice_nameheading">Name</div>
+          <div className="invoice_qtheading">Qt</div>
+          <div className="invoice_priceheading">Price</div>
         </div>
         <div>
-        {cartItems.map((item, index) => (
+          <div>
+            {cartItems.map((item, index) => (
               <div key={index} className="bill_namerateimgdiv">
                 {/* <div className="bill_imgdiv">
                   <img
@@ -116,10 +117,19 @@ const Invoice = () => {
                 <div className="invoice_foodrate">{item.totalprice}</div>
               </div>
             ))}
+          </div>
+          <div>
+            <hr className="invoice_hr" />
+          </div>
+          <div>
+            <div className="invoice_totalparentdiv">
+              <div>Total</div>
+              <div>1400</div>
+            </div>
+          </div>
         </div>
-       
       </div>
-      <FixedButton currentpage={"bill"} />
+      {/* <FixedButton currentpage={"bill"} /> */}
     </div>
   );
 };
