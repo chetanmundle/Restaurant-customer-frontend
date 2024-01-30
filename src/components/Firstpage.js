@@ -11,12 +11,12 @@ const Firstpage = () => {
   // const [tableid, setTableid] = useState(1);
 
   // geting id of table and restauurant
-  const { restid1 } = useParams();
+  const { restid,tableid } = useParams();
 
-  // useEffect(() => {
-  //   localStorage.setItem("restid", JSON.stringify(restid));
-  //   localStorage.setItem("tableid", JSON.stringify(tableid));
-  // }, [restid, tableid]);
+  useEffect(() => {
+    localStorage.setItem("restid", JSON.stringify(restid));
+    localStorage.setItem("tableid", JSON.stringify(tableid));
+  }, [restid, tableid]);
 
   useEffect(() => {
     const handleResize = () => {

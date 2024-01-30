@@ -49,7 +49,7 @@ function App() {
         <Router>
           <Routes>
             {/* <Route path="/test" element={<Test />} /> */}
-            <Route path="/:restid1" element={<Firstpage />} />
+            <Route path="/:restid/:tableid" element={<Firstpage />} />
             <Route path="/homemenu" element={<HomeMenu />} />
             <Route path="/test" element={<Test />} />
             <Route path="/test2" element={<Test2 />} />

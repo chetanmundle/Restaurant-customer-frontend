@@ -6,7 +6,6 @@ import restContext from "../context/restaurant/restContext";
 import Swal from "sweetalert2";
 
 const Bill = () => {
-  const restdata = useContext(restContext);
   const [cartItems, setCartItems] = useState([]);
   const [updateEffect, setUpdateEffect] = useState(false);
   const [totalBill, setTotalBill] = useState(0);

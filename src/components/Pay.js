@@ -7,7 +7,7 @@ import restContext from "../context/restaurant/restContext";
 import { FaRupeeSign } from "react-icons/fa";
 
 const Pay = () => {
-  const restdata = useContext(restContext);
+  // const restdata = useContext(restContext);
   return (
     <div className="pay_container">
       <div className="pay_leftarrowdiv">
@@ -26,7 +26,7 @@ const Pay = () => {
         {/* second card */}
         <div className="pay_secodcard">
           <div className="pay_payyourbilldiv">Pay your Bill</div>
-          <div className="pay_totalmoneydiv">₹ {restdata.totalBill}</div>
+          <div className="pay_totalmoneydiv">₹</div>
           {/* third card */}
           <div className="pay_thirdcard">
             {/* Qr code */}

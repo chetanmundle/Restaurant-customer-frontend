@@ -9,7 +9,6 @@ import restContext from "../context/restaurant/restContext";
 import { toast } from "react-toastify";
 
 const FoodDetails = () => {
-  const restdata = useContext(restContext);
   // const [foodData, setFoodData] = useState(restdata.foodData);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [stars, setStars] = useState([false, false, false, false, false]);
