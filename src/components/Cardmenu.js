@@ -69,6 +69,9 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
 
       if (response.ok) {
         setCartload(cartload + 1);
+        toast.success(" Added to cart", {
+          className: "custom-toast",
+        });
         return true;
       } else {
         return false;
@@ -144,11 +147,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
                           // toast.success(item.name + " Added to cart", {
                           //   className: "custom-toast",
                           // });
-                          if (addToCart(item.id)) {
-                            toast.success(item.name + " Added to cart", {
-                              className: "custom-toast",
-                            });
-                          }
+                          addToCart(item.id);
                         }}
                       >
                         Add Cart
