@@ -10,10 +10,11 @@ import { RiSearchLine } from "react-icons/ri";
 import Roundslider from "./Roundslider";
 
 import Cardmenu from "./Cardmenu";
+import { CircularProgress } from "@mui/material";
 
 const Homemenu = () => {
   const [foodData, setFoodData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState();
   const [noFoodFound, setNoFoodFound] = useState(false);
 
@@ -38,6 +39,7 @@ const Homemenu = () => {
         setFoodData(data); // Assuming the response is an array of menu items
         setPopularFood(data.filter((food) => food.ispopular));
         setCopyOfFoodData(data.filter((food) => food.ispopular));
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error.message);
       }
@@ -62,10 +64,6 @@ const Homemenu = () => {
     } else if (filteredFood.length === 0) {
       setNoFoodFound(true);
     }
-  };
-
-  const handlebtnClick = async () => {
-    setLoading(true); // Set loading to true before navigation
   };
 
   return (
@@ -163,6 +161,12 @@ const Homemenu = () => {
           setCopyOfFoodData={setCopyOfFoodData}
         />
       )}
+
+      {/* div for loading  */}
+
+      <div className="homemenu_loadingdiv">
+        {loading && <CircularProgress style={{ color: 'yellow' }} />}
+      </div>
     </div>
   );
 };
