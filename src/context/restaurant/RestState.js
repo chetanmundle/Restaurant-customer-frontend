@@ -580,10 +580,10 @@ const RestState = (props) => {
   }, [cartItem]);
 
   // save data in loacal Strorage
-  useEffect(() => {
-    localStorage.setItem("restid", JSON.stringify(restid));
-    localStorage.setItem("tableid", JSON.stringify(tableid));
-  }, [restid, tableid]);
+  // useEffect(() => {
+  //   localStorage.setItem("restid", JSON.stringify(restid));
+  //   localStorage.setItem("tableid", JSON.stringify(tableid));
+  // }, [restid, tableid]);
 
   // Function to add item to cart based on id
   const addToCart = (id) => {
