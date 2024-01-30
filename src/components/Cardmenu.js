@@ -14,7 +14,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
       try {
         const status = 1;
         const response = await fetch(
-          `http://localhost:8080/ordermenus/findidsofcartitem/${JSON.parse(
+          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem/${JSON.parse(
             localStorage.getItem("restid")
           )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
           {
@@ -53,7 +53,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
     try {
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
-        `http://localhost:8080/ordermenus/addtocart/${JSON.parse(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}/${itemid}`,
         {
