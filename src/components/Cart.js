@@ -15,7 +15,7 @@ const Cart = () => {
     const status = 1;
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:8080/ordermenus/findmenusoftable/${JSON.parse(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findmenusoftable/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
         {
@@ -41,7 +41,7 @@ const Cart = () => {
 
   const incrementQuantity = async (orderid) => {
     const response = await fetch(
-      `http://localhost:8080/ordermenus/increasequantity/${orderid}`,
+      `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/increasequantity/${orderid}`,
       {
         method: "PUT",
         headers: {
@@ -58,7 +58,7 @@ const Cart = () => {
 
   const decrementQuantity = async (orderid) => {
     const response = await fetch(
-      `http://localhost:8080/ordermenus/decreasequantity/${orderid}`,
+      `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/decreasequantity/${orderid}`,
       {
         method: "PUT",
         headers: {
