@@ -561,6 +561,11 @@ body {
     /* position: absolute; */
   }
 
+  .foodid_imgtop{
+    /* height: 10rem; */
+    width: 100vw;
+  }
+
   .fooddetails_yellostar {
     @apply text-yellow-500;
   }

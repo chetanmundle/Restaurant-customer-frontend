@@ -4,6 +4,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 
 import { toast } from "react-toastify";
+import { CircularProgress } from "@mui/material";
 
 const Foodtypes = () => {
   const [selectsort, setSelectSort] = useState("");
@@ -18,6 +19,7 @@ const Foodtypes = () => {
   const [filteredFood, setFilteredFood] = useState([]);
   const [cartItem, setCartItem] = useState([]);
   const [cartload, setCartload] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   // cart item
   useEffect(() => {
@@ -25,7 +27,7 @@ const Foodtypes = () => {
       try {
         const status = 1;
         const response = await fetch(
-          `http://localhost:8080/ordermenus/findidsofcartitem/${JSON.parse(
+          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem/${JSON.parse(
             localStorage.getItem("restid")
           )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
           {
@@ -64,7 +66,7 @@ const Foodtypes = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/menu/getmenu/byperticularfood/${JSON.parse(
+          `https://royalwebtech-restaurant-production.up.railway.app/menu/getmenu/byperticularfood/${JSON.parse(
             localStorage.getItem("restid")
           )}/${basefoodname}`,
           {
@@ -77,6 +79,7 @@ const Foodtypes = () => {
         if (response.ok) {
           const data = await response.json();
           setFoodname(data);
+          setLoading(false);
         } else {
           console.error("Error fetching data:", response.status);
         }
@@ -88,7 +91,7 @@ const Foodtypes = () => {
     const fetchvegnonvegData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/menu/getmenu/byperticularfood/type/${JSON.parse(
+          `https://royalwebtech-restaurant-production.up.railway.app/menu/getmenu/byperticularfood/type/${JSON.parse(
             localStorage.getItem("restid")
           )}/${type}/${basefoodname}`,
           {
@@ -101,6 +104,7 @@ const Foodtypes = () => {
         if (response.ok) {
           const data = await response.json();
           setFoodname(data);
+          setLoading(false);
         } else {
           console.error("Error fetching data:", response.status);
         }
@@ -391,6 +395,12 @@ const Foodtypes = () => {
           </div>
         </div>
       ))}
+      {/* div for loading  */}
+      <div>
+        <div className="homemenu_loadingdiv">
+          {loading && <CircularProgress style={{ color: "yellow" }} />}
+        </div>
+      </div>
     </div>
   );
 };

@@ -163,7 +163,6 @@ const Homemenu = () => {
       )}
 
       {/* div for loading  */}
-
       <div className="homemenu_loadingdiv">
         {loading && <CircularProgress style={{ color: 'yellow' }} />}
       </div>

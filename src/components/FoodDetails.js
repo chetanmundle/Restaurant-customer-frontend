@@ -7,6 +7,7 @@ import { CiStar } from "react-icons/ci";
 import { Link, useParams } from "react-router-dom";
 import restContext from "../context/restaurant/restContext";
 import { toast } from "react-toastify";
+import { CircularProgress } from "@mui/material";
 
 const FoodDetails = () => {
   // const [foodData, setFoodData] = useState(restdata.foodData);
@@ -86,6 +87,7 @@ const FoodDetails = () => {
           setIsCurrentFood(true);
           console.log("Current dATa : ", data);
           setCurrentFood(data);
+          setLoading(false);
         } else {
           console.log("Error to fetching data");
         }
@@ -96,8 +98,7 @@ const FoodDetails = () => {
 
     fetchData();
 
-    // }
-    setLoading(false);
+  
   }, [foodid]);
 
   const addToCart = async (itemid) => {
@@ -175,13 +176,9 @@ const FoodDetails = () => {
                   <img
                     src={`data:image/png;base64,${currentFood.foodimg}`}
                     alt="img"
-                    className="rounded-b-3xl"
+                    className="rounded-b-3xl foodid_imgtop"
                   />
-                  {/* <img
-                    src={currentFood.image}
-                    alt="img"
-                    className="rounded-b-3xl"
-                  /> */}
+                
                 </div>
 
                 {/* Image of the food */}
@@ -322,10 +319,16 @@ const FoodDetails = () => {
               </div>
             </div>
           ) : (
-            <div>There is no Food of That Id</div>
+            <></>
           )}
         </div>
       )}
+      <div>
+        {/* div for loading  */}
+        <div className="homemenu_loadingdiv">
+          {loading && <CircularProgress style={{ color: "yellow" }} />}
+        </div>
+      </div>
     </div>
   );
 };

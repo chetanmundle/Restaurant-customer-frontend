@@ -51,8 +51,8 @@ function App() {
             {/* <Route path="/test" element={<Test />} /> */}
             <Route path="/:restid/:tableid" element={<Firstpage />} />
             <Route path="/homemenu" element={<HomeMenu />} />
-            <Route path="/test" element={<Test />} />
-            <Route path="/test2" element={<Test2 />} />
+            {/* <Route path="/test" element={<Test />} />
+            <Route path="/test2" element={<Test2 />} /> */}
             <Route path="/cart" element={<Cart />} />
             <Route path="/bill" element={<Bill />} />
             <Route path="/pay" element={<Pay />} />

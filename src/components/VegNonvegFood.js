@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import Roundslider from "./Roundslider";
+import { CircularProgress } from "@mui/material";
 
 const VegNonvegFood = () => {
   const { vegnonvegdata } = useParams();
@@ -16,13 +17,14 @@ const VegNonvegFood = () => {
   const [foodname, setFoodname] = useState([]);
   const [cartItem, setCartItem] = useState([]);
   const [cartload, setCartload] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchdata = async () => {
       try {
         const status = 1;
         const response = await fetch(
-          `http://localhost:8080/ordermenus/findidsofcartitem/${JSON.parse(
+          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem/${JSON.parse(
             localStorage.getItem("restid")
           )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
           {
@@ -62,7 +64,7 @@ const VegNonvegFood = () => {
       try {
         // Fetch data directly within the component
         const response = await fetch(
-          `http://localhost:8080/menu/getallmenus/${JSON.parse(
+          `https://royalwebtech-restaurant-production.up.railway.app/menu/getallmenus/${JSON.parse(
             localStorage.getItem("restid")
           )}`
         );
@@ -73,6 +75,7 @@ const VegNonvegFood = () => {
 
         const data = await response.json();
         setFoodname(data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error.message);
       }
@@ -85,7 +88,7 @@ const VegNonvegFood = () => {
     try {
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
-        `http://localhost:8080/ordermenus/addtocart/${JSON.parse(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}/${itemid}`,
         {
@@ -272,6 +275,12 @@ const VegNonvegFood = () => {
             </div>
           </div>
         ))}
+        <div>
+          {/* div for loading  */}
+          <div className="homemenu_loadingdiv">
+            {loading && <CircularProgress style={{ color: "yellow" }} />}
+          </div>
+        </div>
       </div>
     </div>
   );
