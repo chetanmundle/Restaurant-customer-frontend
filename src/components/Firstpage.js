@@ -11,7 +11,7 @@ const Firstpage = () => {
   // const [tableid, setTableid] = useState(1);
 
   // geting id of table and restauurant
-  const { restid1, tableid1 } = useParams();
+  const { restid1 } = useParams();
 
   // useEffect(() => {
   //   localStorage.setItem("restid", JSON.stringify(restid));

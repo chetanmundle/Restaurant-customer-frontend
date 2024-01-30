@@ -43,14 +43,13 @@ import Invoice from "./components/Invoice";
 // import Test from "./components/Test";
 
 function App() {
-
   return (
     <>
       <RestState>
         <Router>
           <Routes>
             {/* <Route path="/test" element={<Test />} /> */}
-            <Route path="/" element={<Firstpage />} />
+            <Route path="/:restid1" element={<Firstpage />} />
             <Route path="/homemenu" element={<HomeMenu />} />
             <Route path="/test" element={<Test />} />
             <Route path="/test2" element={<Test2 />} />

@@ -11,9 +11,7 @@ import Roundslider from "./Roundslider";
 
 import Cardmenu from "./Cardmenu";
 
-
 const Homemenu = () => {
-
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchText, setSearchText] = useState();
@@ -27,7 +25,7 @@ const Homemenu = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/menu/getallmenus/${JSON.parse(
+          `https://royalwebtech-restaurant-production.up.railway.app/menu/getallmenus/${JSON.parse(
             localStorage.getItem("restid")
           )}`
         );
@@ -156,7 +154,7 @@ const Homemenu = () => {
           <></>
         )}
         {/* horizantal slider of menu page */}
-        {!searchText && <Roundslider type={"all"}/>}
+        {!searchText && <Roundslider type={"all"} />}
       </div>
       <FixedButton currentpage={"home"} />
       {setCopyOfFoodData.length > 0 && (
