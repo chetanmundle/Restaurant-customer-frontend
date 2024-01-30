@@ -11,7 +11,7 @@ const Firstpage = () => {
   // const [tableid, setTableid] = useState(1);
 
   // geting id of table and restauurant
-  const { restid,tableid } = useParams();
+  const { restid, tableid } = useParams();
 
   useEffect(() => {
     localStorage.setItem("restid", JSON.stringify(restid));
@@ -34,6 +34,12 @@ const Firstpage = () => {
     });
   }, []);
 
+  const isValidPhoneNumber = (phoneNumber) => {
+    // Customize this regular expression based on your desired phone number format
+    const phoneRegex = /^[0-9]{10}$/;
+    return phoneRegex.test(phoneNumber);
+  };
+
   const handlebtnClick = async () => {
     const { value: formValues } = await Swal.fire({
       title: "Enter Your Details",
@@ -43,10 +49,16 @@ const Firstpage = () => {
       `,
       focusConfirm: false,
       preConfirm: () => {
-        return [
-          document.getElementById("cname").value,
-          document.getElementById("cphone").value,
-        ];
+        const name = document.getElementById("cname").value;
+        const phoneNumber = document.getElementById("cphone").value;
+
+        // Validate phone number before returning the values
+        if (!isValidPhoneNumber(phoneNumber)) {
+          Swal.showValidationMessage("Invalid phone number");
+          return false;
+        }
+
+        return [name, phoneNumber];
       },
     });
 
@@ -58,7 +70,6 @@ const Firstpage = () => {
 
         navigate("/homemenu");
       }
-    } else {
     }
   };
 
