@@ -96,7 +96,7 @@ const Cart = () => {
                 <div className="cart_indexdiv">{index + 1}</div>
                 <div className="">
                   <img
-                    src={`data:image/png;base64,${item.foodimg}`}
+                    src={`${item.foodimg}`}
                     alt="img"
                     className="cart_img"
                   />

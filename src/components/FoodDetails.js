@@ -174,7 +174,7 @@ const FoodDetails = () => {
 
                 <div className="foodid_imgoffood">
                   <img
-                    src={`data:image/png;base64,${currentFood.foodimg}`}
+                    src={`${currentFood.foodimg}`}
                     alt="img"
                     className="rounded-b-3xl foodid_imgtop"
                   />

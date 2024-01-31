@@ -202,7 +202,7 @@ const VegNonvegFood = () => {
                           alt="food image"
                         /> */}
                         <img
-                          src={`data:image/png;base64,${item.foodimg}`}
+                          src={`${item.foodimg}`}
                           className="cardmenu_image"
                           alt="food image"
                         />

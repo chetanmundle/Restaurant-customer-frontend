@@ -128,7 +128,7 @@ const Bill = () => {
               <div key={item.id} className="bill_namerateimgdiv">
                 {/* <div className="bill_imgdiv">
                   <img
-                    src={`data:image/png;base64,${item.foodimg}`}
+                    src={`${item.foodimg}`}
                     alt={item.name}
                     className="bill_img"
                   />
