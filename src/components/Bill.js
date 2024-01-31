@@ -66,9 +66,8 @@ const Bill = () => {
   const onorderclick = () => {
     const changeData = async () => {
       const bodydata = {
-        cname: "Chetan Mundle",
-        cphone: 9146249682,
-        status: 1,
+        cname: `${JSON.parse(localStorage.getItem("cname"))}`,
+        cphone: `${JSON.parse(localStorage.getItem("cphone"))}`,
       };
       const response = await fetch(
         `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/status/changestatustotwo/${JSON.parse(
