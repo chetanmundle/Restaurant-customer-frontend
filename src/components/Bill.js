@@ -65,6 +65,11 @@ const Bill = () => {
 
   const onorderclick = () => {
     const changeData = async () => {
+      const bodydata = {
+        cname: "Chetan Mundle",
+        cphone: 9146249682,
+        status: 1,
+      };
       const response = await fetch(
         `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/status/changestatustotwo/${JSON.parse(
           localStorage.getItem("restid")
@@ -74,6 +79,7 @@ const Bill = () => {
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify(bodydata),
         }
       );
 
