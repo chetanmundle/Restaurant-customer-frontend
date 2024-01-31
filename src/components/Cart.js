@@ -6,10 +6,12 @@ import { FaPlusCircle } from "react-icons/fa";
 
 import FixedButton from "./Fixedbutton";
 import { Link } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [updateEffect, setUpdateEffect] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const status = 1;
@@ -29,6 +31,7 @@ const Cart = () => {
       if (response.ok) {
         const data = await response.json();
         setCartItems(data);
+        setLoading(false);
       } else if (response.status === 404) {
         setCartItems([]);
         console.log("Data not found");
@@ -95,11 +98,7 @@ const Cart = () => {
               <div key={item.id} className="cart_mapmaindiv ">
                 <div className="cart_indexdiv">{index + 1}</div>
                 <div className="">
-                  <img
-                    src={`${item.foodimg}`}
-                    alt="img"
-                    className="cart_img"
-                  />
+                  <img src={`${item.foodimg}`} alt="img" className="cart_img" />
                   {/* <img src={item.image} alt="img" className="cart_img" /> */}
                 </div>
                 <div className="cart_name">{item.name}</div>
@@ -136,6 +135,14 @@ const Cart = () => {
             <button className="cart_checkoutbtn">Checkout</button>
           </Link>
         </div>
+        {/* div for loading  */}
+        {loading && (
+          <div className="bill_loading-container">
+            <div className="bill_loading-wrapper">
+              <CircularProgress style={{ color: "red" }} />
+            </div> 
+          </div>
+        )}
       </div>
 
       <FixedButton currentpage={"cart"} />

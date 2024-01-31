@@ -173,9 +173,13 @@ const Bill = () => {
           </div>
           <div>
             {/* div for loading  */}
-            <div className="homemenu_loadingdiv">
-              {loading && <CircularProgress style={{ color: "yellow" }} />}
-            </div>
+            {loading && (
+              <div className="bill_loading-container">
+                <div className="bill_loading-wrapper">
+                  <CircularProgress style={{ color: "red" }} />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
