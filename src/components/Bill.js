@@ -4,18 +4,21 @@ import FixedButton from "./Fixedbutton";
 import { Link, useNavigate } from "react-router-dom";
 import restContext from "../context/restaurant/restContext";
 import Swal from "sweetalert2";
+import { CircularProgress } from "@mui/material";
 
 const Bill = () => {
   const [cartItems, setCartItems] = useState([]);
   const [updateEffect, setUpdateEffect] = useState(false);
   const [totalBill, setTotalBill] = useState(0);
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     const status = 1;
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:8080/ordermenus/findmenusoftable/${JSON.parse(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findmenusoftable/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
         {
@@ -29,6 +32,7 @@ const Bill = () => {
       if (response.ok) {
         const data = await response.json();
         setCartItems(data);
+        setLoading(false);
       } else if (response.status === 404) {
         setCartItems([]);
         console.log("Data not found");
@@ -39,7 +43,7 @@ const Bill = () => {
 
     const fetchTotalBill = async () => {
       const response = await fetch(
-        `http://localhost:8080/ordermenus/getfinalprice/${JSON.parse(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/getfinalprice/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
         {
@@ -79,7 +83,7 @@ const Bill = () => {
           icon: "success",
           title: "Order Placed..!",
           showConfirmButton: false,
-          timer: 2000
+          timer: 2000,
         });
         navigate("/order");
       } else {
@@ -160,6 +164,12 @@ const Bill = () => {
             <button className="bill_orderjowbtn" onClick={onorderclick}>
               Order
             </button>
+          </div>
+          <div>
+            {/* div for loading  */}
+            <div className="homemenu_loadingdiv">
+              {loading && <CircularProgress style={{ color: "yellow" }} />}
+            </div>
           </div>
         </div>
       </div>
