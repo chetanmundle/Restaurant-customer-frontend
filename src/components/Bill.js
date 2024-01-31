@@ -62,7 +62,7 @@ const Bill = () => {
   const onorderclick = () => {
     const changeData = async () => {
       const response = await fetch(
-        `http://localhost:8080/ordermenus/status/changestatustotwor/${JSON.parse(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/status/changestatustotwo/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}`,
         {
