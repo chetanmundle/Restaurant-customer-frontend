@@ -68,9 +68,6 @@ const Firstpage = () => {
         localStorage.setItem("cname", JSON.stringify(cname));
         localStorage.setItem("cphone", JSON.stringify(cphone));
 
-        
-
-
         navigate("/homemenu");
       }
     }
