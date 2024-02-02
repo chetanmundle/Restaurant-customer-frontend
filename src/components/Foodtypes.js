@@ -20,6 +20,7 @@ const Foodtypes = () => {
   const [cartItem, setCartItem] = useState([]);
   const [cartload, setCartload] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [loading1, setLoading1] = useState(false);
 
   // cart item
   useEffect(() => {
@@ -216,6 +217,7 @@ const Foodtypes = () => {
 
   const addToCart = async (itemid) => {
     try {
+      setLoading1(true);
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
         `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart`,
@@ -236,14 +238,21 @@ const Foodtypes = () => {
 
       if (response.ok) {
         setCartload(cartload + 1);
-        return true;
-      }else if (response.status == 409) {
-        alert("Someone is already booked a table.....")
+        toast.success(" Added to cart", {
+          className: "custom-toast",
+        });
+      } else if (response.status == 409) {
+        alert("Someone is already booked a table.....");
       } else {
-        return false;
+        console.log("Unble to add to cart");
+        toast.error(" Unable add to cart", {
+          className: "custom-toast",
+        });
       }
     } catch (error) {
       console.log("Error in fetching data :", error);
+    } finally {
+      setLoading1(false);
     }
   };
 
@@ -355,11 +364,7 @@ const Foodtypes = () => {
                           // toast.success(item.name + " Added to cart", {
                           //   className: "custom-toast",
                           // });
-                          if (addToCart(item.id)) {
-                            toast.success(item.name + " Added to cart", {
-                              className: "custom-toast",
-                            });
-                          }
+                          addToCart(item.id);
                         }}
                       >
                         Add Cart
@@ -408,6 +413,16 @@ const Foodtypes = () => {
         <div className="homemenu_loadingdiv">
           {loading && <CircularProgress style={{ color: "yellow" }} />}
         </div>
+      </div>
+      <div>
+        {/* div for loading  */}
+        {loading1 && (
+          <div className="bill_loading-container">
+            <div className="bill_loading-wrapper">
+              <CircularProgress style={{ color: "red" }} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

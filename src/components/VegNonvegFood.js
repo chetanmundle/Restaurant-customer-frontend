@@ -18,6 +18,7 @@ const VegNonvegFood = () => {
   const [cartItem, setCartItem] = useState([]);
   const [cartload, setCartload] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [loading1, setLoading1] = useState(false);
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -91,6 +92,7 @@ const VegNonvegFood = () => {
   const addToCart = async (itemid) => {
     try {
       // adding in cart with restid, tableid and menuid
+      setLoading1(true);
       const response = await fetch(
         `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart`,
         {
@@ -118,6 +120,8 @@ const VegNonvegFood = () => {
       }
     } catch (error) {
       console.log("Error in fetching data :", error);
+    } finally {
+      setLoading1(false);
     }
   };
 
@@ -288,6 +292,16 @@ const VegNonvegFood = () => {
           <div className="homemenu_loadingdiv">
             {loading && <CircularProgress style={{ color: "yellow" }} />}
           </div>
+        </div>
+        <div>
+          {/* div for loading  */}
+          {loading1 && (
+            <div className="bill_loading-container">
+              <div className="bill_loading-wrapper">
+                <CircularProgress style={{ color: "red" }} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
