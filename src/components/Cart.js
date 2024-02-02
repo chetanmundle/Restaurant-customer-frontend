@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // import "../styles/main.css";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaPlusCircle } from "react-icons/fa";
+import { IoArrowUndoCircle } from "react-icons/io5";
 
 import FixedButton from "./Fixedbutton";
 import { Link } from "react-router-dom";
@@ -47,42 +48,61 @@ const Cart = () => {
   }, [updateEffect]);
 
   const incrementQuantity = async (orderid) => {
-    const response = await fetch(
-      `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/increasequantity/${orderid}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/increasequantity/${orderid}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.ok) {
+        setUpdateEffect((prevState) => !prevState);
+      } else {
+        alert("Unable to Inscrease the quantity");
       }
-    );
-    if (response.ok) {
-      setUpdateEffect((prevState) => !prevState);
-    } else {
-      alert("Unable to Inscrease the quantity");
+    } catch (error) {
+      console.log("Unalble to increase Quantity");
+    } finally {
+      setLoading(false);
     }
   };
 
   const decrementQuantity = async (orderid) => {
-    const response = await fetch(
-      `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/decreasequantity/${orderid}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/decreasequantity/${orderid}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.ok) {
+        setUpdateEffect((prevState) => !prevState);
+      } else {
+        alert("Unable to Decrease the quantity");
       }
-    );
-    if (response.ok) {
-      setUpdateEffect((prevState) => !prevState);
-    } else {
-      alert("Unable to Decrease the quantity");
+    } catch (error) {
+      console.log("Unable to Decrease the quantity");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="cart_container">
       <div className="cart_seconddiv">
+        <div>
+          <Link to={"/homemenu"}>
+            <IoArrowUndoCircle className="cart_leftarrow" />
+          </Link>
+        </div>
         <div className="cart_yourcartdiv">Your Cart</div>
       </div>
 
@@ -144,7 +164,7 @@ const Cart = () => {
           <div className="bill_loading-container">
             <div className="bill_loading-wrapper">
               <CircularProgress style={{ color: "red" }} />
-            </div> 
+            </div>
           </div>
         )}
       </div>

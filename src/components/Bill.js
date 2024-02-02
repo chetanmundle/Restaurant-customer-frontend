@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import restContext from "../context/restaurant/restContext";
 import Swal from "sweetalert2";
 import { CircularProgress } from "@mui/material";
+import { IoArrowUndoCircle } from "react-icons/io5";
 
 const Bill = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -109,17 +110,12 @@ const Bill = () => {
   return (
     <div className="text-white">
       <div className="bill_seconddiv">
-        <div>
-          {/* <button
-            className="mx-3"
-            // onClick={() => {
-            //   router.push("");
-            // }}
-          >
-            <FaArrowLeft />
-          </button> */}
+       
+        <div >
+          <Link to={"/cart"}>
+            <IoArrowUndoCircle className="cart_leftarrow" />
+          </Link>
         </div>
-
         <div className="bill_yourbilldiv">Your Bill</div>
       </div>
 

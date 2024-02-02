@@ -450,13 +450,19 @@ body {
   .cart_checkoutbtn {
     @apply bg-yellow-300  text-black font-bold py-3 px-5 text-xl rounded-full mx-5;
   }
+  .cart_leftarrow{
+    color: #F59E0B;
+    font-size: 2rem;
+   margin-top: 0.1rem;
+   margin-left: 0.5rem;
+  }
 
   /* bill mobile cs */
   .bill_totaldiv {
     @apply pl-10;
   }
   .bill_seconddiv {
-    @apply text-2xl font-bold pl-3 pt-5;
+    @apply text-2xl font-bold pl-3 pt-5 flex;
   }
 
   .bill_yourbilldiv {

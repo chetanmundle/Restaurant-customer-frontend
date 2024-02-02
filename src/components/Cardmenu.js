@@ -4,14 +4,17 @@ import { IoIosHeart } from "react-icons/io";
 import { FaRupeeSign } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { CircularProgress } from "@mui/material";
 
 const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
   const [cartItem, setCartItem] = useState([]);
   const [cartload, setCartload] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchdata = async () => {
       try {
+        // setLoading(true);
         const status = 1;
         const response = await fetch(
           `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem`,
@@ -47,6 +50,8 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
       } catch (error) {
         console.error("Error in fetchdata function:", error);
         // Handle any unexpected errors here
+      } finally {
+        // setLoading(false);
       }
     };
 
@@ -55,6 +60,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
 
   const addToCart = async (itemid) => {
     try {
+      setLoading(true);
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
         `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart`,
@@ -86,6 +92,8 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
       }
     } catch (error) {
       console.log("Error in fetching data :", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -203,6 +211,16 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
           </div>
         </div>
       ))}
+      <div>
+        {/* div for loading  */}
+        {loading && (
+          <div className="bill_loading-container">
+            <div className="bill_loading-wrapper">
+              <CircularProgress style={{ color: "red" }} />
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
