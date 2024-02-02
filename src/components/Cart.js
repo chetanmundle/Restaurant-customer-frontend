@@ -17,14 +17,18 @@ const Cart = () => {
     const status = 1;
     const fetchData = async () => {
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findmenusoftable/${JSON.parse(
-          localStorage.getItem("restid")
-        )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findmenusoftable`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            restid: JSON.parse(localStorage.getItem("restid")),
+            tableid: JSON.parse(localStorage.getItem("tableid")),
+            status: status,
+            cphone: JSON.parse(localStorage.getItem("cphone")),
+          }),
         }
       );
 
