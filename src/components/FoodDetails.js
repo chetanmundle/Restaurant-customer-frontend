@@ -105,17 +105,19 @@ const FoodDetails = () => {
     try {
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart/${JSON.parse(
-          localStorage.getItem("restid")
-        )}/${JSON.parse(localStorage.getItem("tableid"))}/${itemid}`,
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             // Add any additional headers if needed
           },
-          // You can include a request body if your server expects data
-          // body: JSON.stringify({ key: 'value' }),
+          body: JSON.stringify({
+            restid: JSON.parse(localStorage.getItem("restid")),
+            tableid: JSON.parse(localStorage.getItem("tableid")),
+            menuid: itemid,
+            cphone: JSON.parse(localStorage.getItem("cphone")),
+          }),
         }
       );
 
