@@ -160,15 +160,12 @@ const FoodDetails = () => {
 
   return (
     <div>
-      {loading ? (
-        <div>Loading....</div>
-      ) : (
-        <div>
-          {iscurrentfood ? (
-            <div className="foodid_container">
-              <div>
-                {/* <div className="text-2xl font-bold grid  grid-cols-9 pt-5 imgofbiryani"> */}
-                {/* <div className="foodid_secoddiv ">
+      <div>
+        {iscurrentfood ? (
+          <div className="foodid_container">
+            <div>
+              {/* <div className="text-2xl font-bold grid  grid-cols-9 pt-5 imgofbiryani"> */}
+              {/* <div className="foodid_secoddiv ">
           <div>
             <button
               className="foodid_backbtn"
@@ -183,152 +180,148 @@ const FoodDetails = () => {
           <div className="foodid_foodname">{foodname[indexOfFood].name}</div>
         </div> */}
 
-                <div className="foodid_imgoffood">
-                  <img
-                    src={`${currentFood.foodimg}`}
-                    alt="img"
-                    className="rounded-b-3xl foodid_imgtop"
-                  />
+              <div className="foodid_imgoffood">
+                <img
+                  src={`${currentFood.foodimg}`}
+                  alt="img"
+                  className="rounded-b-3xl foodid_imgtop"
+                />
+              </div>
+
+              {/* Image of the food */}
+              <div className="foodid_foodimg">
+                {/* Image details */}
+                <div className="foodid_fooddeatails">
+                  <div className="">{currentFood.name}</div>
+                  <div className="text-right">{currentFood.price} RS</div>
+                </div>
+                <div className="foodid_starmaindiv">
+                  <div></div>
+                  <div
+                    onClick={() => {
+                      handalRating(0);
+                    }}
+                  >
+                    {/* <CiStar /> */}
+                    {stars[0] ? (
+                      <FaStar className="fooddetails_yellostar" />
+                    ) : (
+                      <CiStar />
+                    )}
+                  </div>
+                  <div
+                    onClick={() => {
+                      handalRating(1);
+                    }}
+                  >
+                    {/* <CiStar /> */}
+                    {stars[1] ? (
+                      <FaStar className="fooddetails_yellostar" />
+                    ) : (
+                      <CiStar />
+                    )}
+                  </div>
+                  <div
+                    onClick={() => {
+                      handalRating(2);
+                    }}
+                  >
+                    {/* <CiStar /> */}
+                    {stars[2] ? (
+                      <FaStar className="fooddetails_yellostar" />
+                    ) : (
+                      <CiStar />
+                    )}
+                  </div>
+                  <div
+                    onClick={() => {
+                      handalRating(3);
+                    }}
+                  >
+                    {/* <CiStar /> */}
+                    {stars[3] ? (
+                      <FaStar className="fooddetails_yellostar" />
+                    ) : (
+                      <CiStar />
+                    )}
+                  </div>
+                  <div
+                    onClick={() => {
+                      handalRating(4);
+                    }}
+                  >
+                    {/* <FaStar className="text-yellow-500"/> */}
+                    {/* <CiStar /> */}
+                    {stars[4] ? (
+                      <FaStar className="fooddetails_yellostar" />
+                    ) : (
+                      <CiStar />
+                    )}
+                  </div>
+                  <div className="foodid_review">(reviews)</div>
                 </div>
 
-                {/* Image of the food */}
-                <div className="foodid_foodimg">
-                  {/* Image details */}
-                  <div className="foodid_fooddeatails">
-                    <div className="">{currentFood.name}</div>
-                    <div className="text-right">{currentFood.price} RS</div>
-                  </div>
-                  <div className="foodid_starmaindiv">
-                    <div></div>
-                    <div
-                      onClick={() => {
-                        handalRating(0);
-                      }}
-                    >
-                      {/* <CiStar /> */}
-                      {stars[0] ? (
-                        <FaStar className="fooddetails_yellostar" />
-                      ) : (
-                        <CiStar />
-                      )}
-                    </div>
-                    <div
-                      onClick={() => {
-                        handalRating(1);
-                      }}
-                    >
-                      {/* <CiStar /> */}
-                      {stars[1] ? (
-                        <FaStar className="fooddetails_yellostar" />
-                      ) : (
-                        <CiStar />
-                      )}
-                    </div>
-                    <div
-                      onClick={() => {
-                        handalRating(2);
-                      }}
-                    >
-                      {/* <CiStar /> */}
-                      {stars[2] ? (
-                        <FaStar className="fooddetails_yellostar" />
-                      ) : (
-                        <CiStar />
-                      )}
-                    </div>
-                    <div
-                      onClick={() => {
-                        handalRating(3);
-                      }}
-                    >
-                      {/* <CiStar /> */}
-                      {stars[3] ? (
-                        <FaStar className="fooddetails_yellostar" />
-                      ) : (
-                        <CiStar />
-                      )}
-                    </div>
-                    <div
-                      onClick={() => {
-                        handalRating(4);
-                      }}
-                    >
-                      {/* <FaStar className="text-yellow-500"/> */}
-                      {/* <CiStar /> */}
-                      {stars[4] ? (
-                        <FaStar className="fooddetails_yellostar" />
-                      ) : (
-                        <CiStar />
-                      )}
-                    </div>
-                    <div className="foodid_review">(reviews)</div>
-                  </div>
-
-                  <div className="foodid_fooddeatilsdiv">Food Details</div>
-                  <br />
-                  <div className="foodid_detailsoffood">
-                    {currentFood.fooddetails}
-                  </div>
-                  <div className=" foodid_nutritionsdiv">NUTRITIONS</div>
-                  <br />
-                  <div className="foodid_foodnutritionmaindiv">
-                    <div className="foodid_carbsdiv ">
-                      <div className="font-semibold">
-                        {`${currentFood.carbs}`} gr
-                      </div>
-                      <div>carbs</div>
-                    </div>
-                    <div className="foodid_caloriesdiv">
-                      <div className="font-semibold">
-                        {`${currentFood.calories}`} gr
-                      </div>
-                      <div>calories</div>
-                    </div>
-                    <div className="foodid_proteinsdiv">
-                      <div className="font-semibold">
-                        {currentFood.proteins} gr
-                      </div>
-                      <div>proteins</div>
-                    </div>
-                  </div>
+                <div className="foodid_fooddeatilsdiv">Food Details</div>
+                <br />
+                <div className="foodid_detailsoffood">
+                  {currentFood.fooddetails}
                 </div>
-
-                <div className="foodid_addtocarddiv">
-                  {/* <button className="foodid_addtocardbtn">Add To Cart</button> */}
-
-                  {cartItem.some(
-                    (cartItem) => cartItem.id === currentFood.id
-                  ) ? (
-                    // If item is in the cart, show a link to the cart
-                    <Link to="/cart">
-                      <button className="foodid_addtocardbtn">
-                        Go to Cart
-                      </button>
-                    </Link>
-                  ) : (
-                    // If item is not in the cart, show the "Add Cart" button
-                    <button
-                      className="foodid_addtocardbtn"
-                      onClick={() => {
-                        // restdata.addToCart(item.id);
-                        // toast.success(item.name + " Added to cart", {
-                        //   className: "custom-toast",
-                        // });
-
-                        addToCart(currentFood.id);
-                      }}
-                    >
-                      Add Cart
-                    </button>
-                  )}
+                <div className=" foodid_nutritionsdiv">NUTRITIONS</div>
+                <br />
+                <div className="foodid_foodnutritionmaindiv">
+                  <div className="foodid_carbsdiv ">
+                    <div className="font-semibold">
+                      {`${currentFood.carbs}`} gr
+                    </div>
+                    <div>carbs</div>
+                  </div>
+                  <div className="foodid_caloriesdiv">
+                    <div className="font-semibold">
+                      {`${currentFood.calories}`} gr
+                    </div>
+                    <div>calories</div>
+                  </div>
+                  <div className="foodid_proteinsdiv">
+                    <div className="font-semibold">
+                      {currentFood.proteins} gr
+                    </div>
+                    <div>proteins</div>
+                  </div>
                 </div>
               </div>
+
+              <div className="foodid_addtocarddiv">
+                {/* <button className="foodid_addtocardbtn">Add To Cart</button> */}
+
+                {cartItem.some((cartItem) => cartItem.id === currentFood.id) ? (
+                  // If item is in the cart, show a link to the cart
+                  <Link to="/cart">
+                    <button className="foodid_addtocardbtn">Go to Cart</button>
+                  </Link>
+                ) : (
+                  // If item is not in the cart, show the "Add Cart" button
+                  <button
+                    className="foodid_addtocardbtn"
+                    onClick={() => {
+                      // restdata.addToCart(item.id);
+                      // toast.success(item.name + " Added to cart", {
+                      //   className: "custom-toast",
+                      // });
+
+                      addToCart(currentFood.id);
+                    }}
+                  >
+                    Add Cart
+                  </button>
+                )}
+              </div>
             </div>
-          ) : (
-            <></>
-          )}
-        </div>
-      )}
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+
       <div>
         {/* div for loading  */}
         {/* <div className="homemenu_loadingdiv">
