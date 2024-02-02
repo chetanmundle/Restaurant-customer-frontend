@@ -14,15 +14,19 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
       try {
         const status = 1;
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem/${JSON.parse(
-            localStorage.getItem("restid")
-          )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
+          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem`,
           {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
               // Add any additional headers if needed
             },
+            body: JSON.stringify({
+              restid: JSON.parse(localStorage.getItem("restid")),
+              tableid: JSON.parse(localStorage.getItem("tableid")),
+              status: status,
+              cphone: JSON.parse(localStorage.getItem("cphone")),
+            }),
           }
         );
 
@@ -75,8 +79,8 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
           className: "custom-toast",
         });
         return true;
-      }else if (response.status == 409) {
-        alert("Someone is already booked a table.....")
+      } else if (response.status == 409) {
+        alert("Someone is already booked a table.....");
       } else {
         return false;
       }
