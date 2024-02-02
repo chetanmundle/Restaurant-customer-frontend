@@ -16,7 +16,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
         const response = await fetch(
           `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem`,
           {
-            method: "GET",
+            method: "POST",
             headers: {
               "Content-Type": "application/json",
               // Add any additional headers if needed
