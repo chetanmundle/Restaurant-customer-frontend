@@ -75,6 +75,8 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
           className: "custom-toast",
         });
         return true;
+      }else if (response.status == 409) {
+        alert("Someone is already booked a table.....")
       } else {
         return false;
       }

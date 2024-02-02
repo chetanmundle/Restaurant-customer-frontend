@@ -72,7 +72,7 @@ const Cart = () => {
     if (response.ok) {
       setUpdateEffect((prevState) => !prevState);
     } else {
-      alert("Unable to Inscrease the quantity");
+      alert("Unable to Decrease the quantity");
     }
   };
 

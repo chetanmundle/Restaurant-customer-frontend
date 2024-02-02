@@ -107,6 +107,8 @@ const VegNonvegFood = () => {
       if (response.ok) {
         setCartload(cartload + 1);
         return true;
+      } else if (response.status == 409) {
+        alert("Someone is already booked a table.....");
       } else {
         return false;
       }
