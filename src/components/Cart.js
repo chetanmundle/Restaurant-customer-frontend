@@ -113,8 +113,8 @@ const Cart = () => {
         <div className="cart_secondcarddiv">
           <div className="card_secondcardseconddiv">
             <div className="cart_itemQulitydiv">
-              <div className="cart_item">item</div>
-              <div className="cart_qunitity">quantity</div>
+              <div className="cart_item">Item</div>
+              <div className="cart_qunitity">Quantity</div>
             </div>
             <hr className="cart_hr" />
 
