@@ -116,7 +116,7 @@ const Bill = () => {
             <IoArrowUndoCircle className="cart_leftarrow" />
           </Link>
         </div>
-        <div className="bill_yourbilldiv">Your Bill</div>
+        <div className="bill_yourbilldiv">Your Menus</div>
       </div>
 
       {/* first card */}

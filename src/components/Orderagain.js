@@ -1,7 +1,7 @@
 import React from "react";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import hotellogo from "../images/hotellogo.png";
+import restlog from "../images/restlogo1.png";
 import Swal from "sweetalert2";
 
 const Orderagain = () => {
@@ -88,7 +88,7 @@ const Orderagain = () => {
         {/* hotel log */}
         <div className="orderagain_hotellogo">
           <div className="">
-            <img src={hotellogo} alt="logo" className="orderagain_logo" />
+            <img src={restlog} alt="logo" className="orderagain_logo" />
           </div>
         </div>
 
