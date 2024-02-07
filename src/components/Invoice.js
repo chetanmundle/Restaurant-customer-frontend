@@ -9,98 +9,61 @@ import restlogo from "../images/restlogo1.png";
 
 const Invoice = () => {
   // const [cartItems, setCartItems] = useState([]);
-  const [cartItems, setCartItems] = useState({
-    cphone: 9146249682,
-    ordermenus: [
-      {
-        quantity: 5,
-        price: 150.0,
-        discountedprice: 105.0,
-        name: "Chicken Biryani",
-        discount: 30.0,
-        id: 3,
-      },
-      {
-        quantity: 2,
-        price: 30.0,
-        discountedprice: 28.5,
-        name: "Goat Biryani",
-        discount: 5.0,
-        id: 6,
-      },
-      {
-        quantity: 1,
-        price: 150.0,
-        discountedprice: 120.0,
-        name: "Button Chicken",
-        discount: 20.0,
-        id: 4,
-      },
-    ],
-    restaurantname: "Chetan Di Dhaba",
-    billwithdiscount: 631.8,
-    billwithoutdiscount: 702.0,
-    cname: "Chetan Mundle",
-    discountofRestaurnat: 10.0,
-  });
+  const [cartItems, setCartItems] = useState([]);
   const [totalBill, setTotalBill] = useState(0);
 
-  const printpage =()=>{
-    window.print();
-  }
+  useEffect(() => {
+    const status = 3;
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/getinvoicemenus/customer`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            restid: JSON.parse(localStorage.getItem("restid")),
+            tableid: JSON.parse(localStorage.getItem("tableid")),
+            status: 3,
+            cphone: JSON.parse(localStorage.getItem("cphone")),
+          }),
+        }
+      );
 
-  // useEffect(() => {
-  //   const status = 3;
-  //   const fetchData = async () => {
-  //     const response = await fetch(
-  //       `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/getinvoicemenus/customer`,
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           restid: JSON.parse(localStorage.getItem("restid")),
-  //           tableid: JSON.parse(localStorage.getItem("tableid")),
-  //           status:3,
-  //           cphone: JSON.parse(localStorage.getItem("cphone")),
-  //         }),
-  //       }
-  //     );
+      if (response.ok) {
+        const data = await response.json();
+        console.log("data item : ", data);
+        setCartItems(data);
+      } else if (response.status === 404) {
+        setCartItems([]);
+        console.log("Data not found");
+      } else {
+        console.log("Unable to fetch the data from the database");
+      }
+    };
 
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       console.log("data item : ", data);
-  //       setCartItems(data.ordermenus);
-  //     } else if (response.status === 404) {
-  //       setCartItems([]);
-  //       console.log("Data not found");
-  //     } else {
-  //       console.log("Unable to fetch the data from the database");
-  //     }
-  //   };
+    // const fetchTotalBill = async () => {
+    //   const response = await fetch(
+    //     `http://localhost:8080/ordermenus/getfinalprice/${JSON.parse(
+    //       localStorage.getItem("restid")
+    //     )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
+    //     {
+    //       method: "GET",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
 
-  // const fetchTotalBill = async () => {
-  //   const response = await fetch(
-  //     `http://localhost:8080/ordermenus/getfinalprice/${JSON.parse(
-  //       localStorage.getItem("restid")
-  //     )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     }
-  //   );
-
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     setTotalBill(data);
-  //   }
-  // };
-  // fetchData();
-  // fetchTotalBill();
-  // }, []);
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     setTotalBill(data);
+    //   }
+    // };
+    fetchData();
+    // fetchTotalBill();
+  }, []);
   return (
     <div className="pay_container">
       <div className="pay_leftarrowdiv">
@@ -144,7 +107,9 @@ const Invoice = () => {
           <div className="invoice_logodiv">
             <img src={restlogo} alt="" />
           </div>
-          <div className="invoice_invoicenamediv">Restaurant</div>
+          <div className="invoice_invoicenamediv">
+            {cartItems.restaurantname}
+          </div>
         </div>
 
         <div>
@@ -154,7 +119,7 @@ const Invoice = () => {
           </div>
           <div className="invoice_cdetailsdiv">
             <div className="invoice_chead">Customer Phone :</div>
-            <div>9146249682</div>
+            <div>{cartItems.cphone}</div>
           </div>
         </div>
 
@@ -169,18 +134,20 @@ const Invoice = () => {
 
         <div>
           <div>
-            {cartItems.ordermenus.map((item, index) => (
-              <div key={index}>
-                <div className="invoice_headingdivs">
-                  <div className="invoice_itemheaddiv">{item.name}</div>
-                  <div>{item.quantity}</div>
-                  <div className="invoice_pricediv">
-                    <div>&#8377;{item.discountedprice}</div>
+            {cartItems &&
+              cartItems.ordermenus &&
+              cartItems.ordermenus.map((item, index) => (
+                <div key={index}>
+                  <div className="invoice_headingdivs">
+                    <div className="invoice_itemheaddiv">{item.name}</div>
+                    <div>{item.quantity}</div>
+                    <div className="invoice_pricediv">
+                      <div>&#8377;{item.discountedprice}</div>
+                    </div>
+                    <div>&#8377;{item.discountedprice * item.quantity}</div>
                   </div>
-                  <div>&#8377;{item.discountedprice * item.quantity}</div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
           <hr className="invoice_horizontal-line" />
           <div>
@@ -197,9 +164,6 @@ const Invoice = () => {
               <div>&#8377;{cartItems.billwithdiscount}</div>
             </div>
           </div>
-        </div>
-        <div>
-          <button onClick={printpage}>print</button>
         </div>
       </div>
     </div>

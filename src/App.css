@@ -842,15 +842,17 @@ body {
     font-size: 1.5rem;
   }
   .invoice_logoparentdiv {
-    @apply flex justify-between px-10 mb-5;
+   @apply grid grid-cols-2;
   }
   .invoice_logodiv {
-    height: 5rem;
-    width: 5rem;
+    text-align: center;
+   height: 7rem;
+   width: 7rem;
+   padding-left: 1rem;
   }
   .invoice_invoicenamediv {
-    @apply mt-5 mr-5 font-bold underline;
-    font-size: 1.5rem;
+   @apply font-bold pr-3 text-center mt-3;
+   font-size: 1.5rem;
   }
   .invoice_cdetailsdiv {
     @apply grid grid-cols-2 mt-3;
@@ -859,10 +861,9 @@ body {
     @apply font-bold ml-3;
   }
   .invoice_headingdivs {
-    @apply grid grid-cols-12  mt-5 border ;
-   
+    @apply grid grid-cols-12  mt-5 border;
   }
-  .invoice_fontbold{
+  .invoice_fontbold {
     @apply font-bold;
     border: 1px solid #000;
     padding: 10px;
@@ -876,17 +877,16 @@ body {
     @apply col-span-5 pl-2;
     /* text-align: center; */
   }
-  .invoice_pricediv{
+  .invoice_pricediv {
     @apply col-span-3;
     text-align: center;
   }
-  .invoice_subtotalparentdiv{
+  .invoice_subtotalparentdiv {
     @apply flex justify-between px-16 my-3;
   }
-  .font_bold{
+  .font_bold {
     @apply font-bold;
   }
-  
 }
 
 /* media for the tablet view */
