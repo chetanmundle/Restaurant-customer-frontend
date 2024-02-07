@@ -115,7 +115,7 @@ const Invoice = () => {
         <div>
           <div className="invoice_cdetailsdiv">
             <div className="invoice_chead">Customer Name :</div>
-            <div>Chetan Mundle</div>
+            <div>{cartItems.cname}</div>
           </div>
           <div className="invoice_cdetailsdiv">
             <div className="invoice_chead">Customer Phone :</div>
