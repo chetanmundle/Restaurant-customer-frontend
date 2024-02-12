@@ -15,33 +15,38 @@ const Invoice = () => {
   useEffect(() => {
     const status = 3;
     const fetchData = async () => {
-      const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/getinvoicemenus/customer`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            restid: JSON.parse(localStorage.getItem("restid")),
-            tableid: JSON.parse(localStorage.getItem("tableid")),
-            status: 3,
-            cphone: JSON.parse(localStorage.getItem("cphone")),
-          }),
+      try {
+        const response = await fetch(
+          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/getinvoicemenus/customer`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              restid: JSON.parse(localStorage.getItem("restid")),
+              tableid: JSON.parse(localStorage.getItem("tableid")),
+              status: 3,
+              cphone: JSON.parse(localStorage.getItem("cphone")),
+            }),
+          }
+        );
+  
+        if (response.ok) {
+          const data = await response.json();
+          console.log("data item : ", data);
+          setCartItems(data);
+        } else if (response.status === 404) {
+          setCartItems([]);
+          console.log("Data not found");
+        } else {
+          console.log("Unable to fetch the data from the database");
         }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("data item : ", data);
-        setCartItems(data);
-      } else if (response.status === 404) {
-        setCartItems([]);
-        console.log("Data not found");
-      } else {
-        console.log("Unable to fetch the data from the database");
+      } catch (error) {
+        console.log("Unable to fetch data");
       }
     };
+    fetchData();
 
     // const fetchTotalBill = async () => {
     //   const response = await fetch(
@@ -61,7 +66,7 @@ const Invoice = () => {
     //     setTotalBill(data);
     //   }
     // };
-    fetchData();
+    
     // fetchTotalBill();
   }, []);
   return (
