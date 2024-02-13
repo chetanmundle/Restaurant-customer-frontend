@@ -1550,3 +1550,36 @@ body {
    }
   
 }
+
+
+/* styles.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.logo {
+  width: 100px;
+  height: 2rem;
+  animation: slideIn 1s ease-out;
+}
+
+.navbar-buttons a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

@@ -7,10 +7,7 @@ import Swal from "sweetalert2";
 const Orderagain = () => {
   const navigate = useNavigate();
 
-  
-
-  const handalgenerateInvoice=()=>{
-  
+  const handalgenerateInvoice = () => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to Order Food Again!",
@@ -18,7 +15,7 @@ const Orderagain = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Generate Invoice"
+      confirmButtonText: "Generate Invoice",
     }).then((result) => {
       if (result.isConfirmed) {
         const changeData = async () => {
@@ -33,26 +30,25 @@ const Orderagain = () => {
               },
             }
           );
-    
+
           if (response.ok) {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Order Placed..!",
+              title: "Invoice Generated Successfully..!",
               showConfirmButton: false,
-              timer: 2000
+              timer: 2000,
             });
-            navigate("/invoice")
+            navigate("/invoice");
           } else {
             alert("something went wrong..! Unable to Generate Invoice");
           }
         };
-    
+
         changeData();
-       
       }
     });
-  }
+  };
   return (
     <div className="orderagain_conatainer">
       <div className="orderagain_leftarrowdiv">
@@ -102,9 +98,7 @@ const Orderagain = () => {
         {/* order place */}
 
         <div className="orderagain_msg">
-          <div>
-            Order Placed! Your Order Delivered in 15 Min...
-          </div>
+          <div>Order Placed! Your Order Delivered in 15 Min...</div>
         </div>
 
         {/* buttons  */}
@@ -118,7 +112,12 @@ const Orderagain = () => {
             {/* <Link to={"/invoice"}>
               <button className="orderagain_orderjowbtn" >Generate Invoice</button>
             </Link> */}
-            <button className="orderagain_orderjowbtn" onClick={handalgenerateInvoice}>Generate Invoice</button>
+            <button
+              className="orderagain_orderjowbtn"
+              onClick={handalgenerateInvoice}
+            >
+              Generate Invoice
+            </button>
           </div>
         </div>
       </div>
