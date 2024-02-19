@@ -34,7 +34,6 @@ const Pay = () => {
               <div className="Pay_QRdiv">
                 <img src={QR} alt={"QR code"} className="Pay_QR" />
               </div>
-              
             </div>
           </div>
 
