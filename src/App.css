@@ -292,7 +292,7 @@ body {
   }
 
   .homepage_non_veg_div {
-    @apply bg-white  text-black  rounded-full mt-1 mb-2 mr-2 h-20 grid grid-cols-2;
+    @apply bg-white  text-black  rounded-full  mb-2 mr-2 h-20 grid grid-cols-2;
   }
 
   .homepage_nonveg_img {
@@ -1554,12 +1554,15 @@ body {
 
 /* styles.css */
 .navbar {
+  width: 100%;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #333;
   color: #fff;
+  
 }
 
 .logo {
