@@ -29,7 +29,7 @@ const FoodDetails = () => {
       try {
         const status = 1;
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem`,
+          `http://localhost:8080/ordermenus/findidsofcartitem`,
           {
             method: "POST",
             headers: {
@@ -76,7 +76,7 @@ const FoodDetails = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/menu/getmenu/${JSON.parse(
+          `http://localhost:8080/menu/getmenu/${JSON.parse(
             localStorage.getItem("restid")
           )}/${foodid}`,
           {
@@ -108,7 +108,7 @@ const FoodDetails = () => {
       // adding in cart with restid, tableid and menuid
       setLoading(true);
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart`,
+        `http://localhost:8080/ordermenus/addtocart`,
         {
           method: "POST",
           headers: {

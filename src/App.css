@@ -214,11 +214,16 @@ body {
   /* menupage mobile view css */
   .menulist_container {
     @apply pr-10 bg-black;
+   width: 100vw;
   }
 
   .menulist_btn_div {
-    @apply fixed bottom-4 justify-center bg-slate-700 text-white p-2 rounded-full shadow-md ml-12 grid grid-cols-3 gap-11 h-14 mb-6;
+    @apply fixed bottom-4 justify-center bg-slate-700 text-white p-2 rounded-full shadow-md  grid grid-cols-3 gap-11 h-14 mb-6;
+    width: 76vw;
+    margin-left: 12vw;
   }
+
+
 
   .menulist_first_btn {
     @apply ml-5 h-10 w-10 text-black rounded-xl;

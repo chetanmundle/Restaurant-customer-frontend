@@ -17,7 +17,7 @@ const Invoice = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/getinvoicemenus/customer`,
+          `http://localhost:8080/ordermenus/getinvoicemenus/customer`,
           {
             method: "POST",
             headers: {

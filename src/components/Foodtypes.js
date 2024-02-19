@@ -28,7 +28,7 @@ const Foodtypes = () => {
       try {
         const status = 1;
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem`,
+          `http://localhost:8080/ordermenus/findidsofcartitem`,
           {
             method: "POST",
             headers: {
@@ -71,7 +71,7 @@ const Foodtypes = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/menu/getmenu/byperticularfood/${JSON.parse(
+          `http://localhost:8080/menu/getmenu/byperticularfood/${JSON.parse(
             localStorage.getItem("restid")
           )}/${basefoodname}`,
           {
@@ -96,7 +96,7 @@ const Foodtypes = () => {
     const fetchvegnonvegData = async () => {
       try {
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/menu/getmenu/byperticularfood/type/${JSON.parse(
+          `http://localhost:8080/menu/getmenu/byperticularfood/type/${JSON.parse(
             localStorage.getItem("restid")
           )}/${type}/${basefoodname}`,
           {
@@ -220,7 +220,7 @@ const Foodtypes = () => {
       setLoading1(true);
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart`,
+        `http://localhost:8080/ordermenus/addtocart`,
         {
           method: "POST",
           headers: {

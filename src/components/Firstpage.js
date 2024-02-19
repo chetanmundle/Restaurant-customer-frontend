@@ -44,8 +44,8 @@ const Firstpage = () => {
     const { value: formValues } = await Swal.fire({
       title: "Enter Your Details",
       html: `
-        <input id="cname" class="${className}" type="text" placeholder="Enter Your Name">
-        <input id="cphone" class="${className}" type="number" placeholder="Enter Your Mobile Number" Maxlength=10>
+        <input id="cname" class="${className}" type="text" placeholder="Enter Your Name" autocomplete="off">
+        <input id="cphone" class="${className}" type="number" placeholder="Enter Your Mobile Number" autocomplete="off">
       `,
       focusConfirm: false,
       preConfirm: () => {

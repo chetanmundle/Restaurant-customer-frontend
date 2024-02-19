@@ -19,7 +19,7 @@ const Bill = () => {
     const status = 1;
     const fetchData = async () => {
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findmenusoftable`,
+        `http://localhost:8080/ordermenus/findmenusoftable`,
         {
           method: "POST",
           headers: {
@@ -48,7 +48,7 @@ const Bill = () => {
 
     const fetchTotalBill = async () => {
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/getfinalprice/${JSON.parse(
+        `http://localhost:8080/ordermenus/getfinalprice/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
         {
@@ -75,7 +75,7 @@ const Bill = () => {
       //   cphone: `${JSON.parse(localStorage.getItem("cphone"))}`,
       // };
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/status/changestatustotwo`,
+        `http://localhost:8080/ordermenus/status/changestatustotwo`,
         {
           method: "PUT",
           headers: {

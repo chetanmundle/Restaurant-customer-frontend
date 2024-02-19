@@ -26,7 +26,7 @@ const Homemenu = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/menu/getallmenus/${JSON.parse(
+          `http://localhost:8080/menu/getallmenus/${JSON.parse(
             localStorage.getItem("restid")
           )}`
         );

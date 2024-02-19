@@ -25,7 +25,7 @@ const VegNonvegFood = () => {
       try {
         const status = 1;
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem`,
+          `http://localhost:8080/ordermenus/findidsofcartitem`,
           {
             method: "POST",
             headers: {
@@ -69,7 +69,7 @@ const VegNonvegFood = () => {
       try {
         // Fetch data directly within the component
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/menu/getallmenus/${JSON.parse(
+          `http://localhost:8080/menu/getallmenus/${JSON.parse(
             localStorage.getItem("restid")
           )}`
         );
@@ -94,7 +94,7 @@ const VegNonvegFood = () => {
       // adding in cart with restid, tableid and menuid
       setLoading1(true);
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart`,
+        `http://localhost:8080/ordermenus/addtocart`,
         {
           method: "POST",
           headers: {

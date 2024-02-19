@@ -38,8 +38,9 @@ const FixedButton = ({ currentpage }) => {
     <div>
       <div className="menulist_container">
         {/* <FixedButton /> */}
-        <div className="menulist_btn_div">
-          {/* <button
+        <div className="menulist_center_div">
+          <div className="menulist_btn_div">
+            {/* <button
             className={` menulist_first_btn 
             bg-slate-700
             `}
@@ -59,38 +60,39 @@ const FixedButton = ({ currentpage }) => {
           >
             <PiCurrencyCircleDollarFill className="menulist_icon" />
           </button> */}
-          <Link to={"/homemenu"}>
-            <button
-              className={` menulist_first_btn 
+            <Link to={"/homemenu"}>
+              <button
+                className={` menulist_first_btn 
             ${home ? "menulist_yellow" : "bg-slate-600 "}
             `}
-              // onClick={handalhome}
-            >
-              <FaHome className="menulist_icon" />
-            </button>
-          </Link>
-          <Link to={"/cart"}>
-            {" "}
-            <button
-              className={`menulist_middle_btn ${
-                cart ? "menulist_yellow" : "bg-slate-700"
-              }`}
-              // onClick={handalcart}
-            >
-              <FaShoppingCart className="menulist_icon" />
-            </button>
-          </Link>
-          <Link to={"/bill"}>
-            <button
-              className={`menulist_third_btn ${
-                bill || pay || orderagain ? "menulist_yellow" : "bg-slate-700"
-              }`}
-              // onClick={handalbill}
-            >
-              {/* <PiCurrencyCircleDollarFill className="menulist_icon" /> */}
-              <FaRupeeSign className="menulist_icon"/>
-            </button>
-          </Link>
+                // onClick={handalhome}
+              >
+                <FaHome className="menulist_icon" />
+              </button>
+            </Link>
+            <Link to={"/cart"}>
+              {" "}
+              <button
+                className={`menulist_middle_btn ${
+                  cart ? "menulist_yellow" : "bg-slate-700"
+                }`}
+                // onClick={handalcart}
+              >
+                <FaShoppingCart className="menulist_icon" />
+              </button>
+            </Link>
+            <Link to={"/bill"}>
+              <button
+                className={`menulist_third_btn ${
+                  bill || pay || orderagain ? "menulist_yellow" : "bg-slate-700"
+                }`}
+                // onClick={handalbill}
+              >
+                {/* <PiCurrencyCircleDollarFill className="menulist_icon" /> */}
+                <FaRupeeSign className="menulist_icon" />
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

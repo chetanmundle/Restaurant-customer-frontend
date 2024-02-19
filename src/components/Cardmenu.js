@@ -17,7 +17,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
         // setLoading(true);
         const status = 1;
         const response = await fetch(
-          `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/findidsofcartitem`,
+          `http://localhost:8080/ordermenus/findidsofcartitem`,
           {
             method: "POST",
             headers: {
@@ -63,7 +63,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
       setLoading(true);
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
-        `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/addtocart`,
+        `http://localhost:8080/ordermenus/addtocart`,
         {
           method: "POST",
           headers: {

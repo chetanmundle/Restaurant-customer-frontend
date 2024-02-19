@@ -20,7 +20,7 @@ const Orderagain = () => {
       if (result.isConfirmed) {
         const changeData = async () => {
           const response = await fetch(
-            `https://royalwebtech-restaurant-production.up.railway.app/ordermenus/status/changestatustothree/${JSON.parse(
+            `http://localhost:8080/ordermenus/status/changestatustothree/${JSON.parse(
               localStorage.getItem("restid")
             )}/${JSON.parse(localStorage.getItem("tableid"))}`,
             {
