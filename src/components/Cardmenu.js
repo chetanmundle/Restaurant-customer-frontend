@@ -17,7 +17,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
         // setLoading(true);
         const status = 1;
         const response = await fetch(
-          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/findidsofcartitem`,
+          `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/findidsofcartitem`,
           {
             method: "POST",
             headers: {
@@ -63,7 +63,7 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
       setLoading(true);
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
-        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/addtocart`,
+        `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/addtocart`,
         {
           method: "POST",
           headers: {

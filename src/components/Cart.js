@@ -18,7 +18,7 @@ const Cart = () => {
     const status = 1;
     const fetchData = async () => {
       const response = await fetch(
-        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/findmenusoftable`,
+        `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/findmenusoftable`,
         {
           method: "POST",
           headers: {
@@ -51,7 +51,7 @@ const Cart = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/increasequantity/${orderid}`,
+        `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/increasequantity/${orderid}`,
         {
           method: "PUT",
           headers: {
@@ -75,7 +75,7 @@ const Cart = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/decreasequantity/${orderid}`,
+        `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/decreasequantity/${orderid}`,
         {
           method: "PUT",
           headers: {

@@ -19,7 +19,7 @@ const Bill = () => {
     const status = 1;
     const fetchData = async () => {
       const response = await fetch(
-        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/findmenusoftable`,
+        `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/findmenusoftable`,
         {
           method: "POST",
           headers: {
@@ -49,7 +49,7 @@ const Bill = () => {
 
     const fetchTotalBill = async () => {
       const response = await fetch(
-        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/getfinalprice/${JSON.parse(
+        `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/getfinalprice/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
         {
@@ -77,7 +77,7 @@ const Bill = () => {
       //   cphone: `${JSON.parse(localStorage.getItem("cphone"))}`,
       // };
       const response = await fetch(
-        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/status/changestatustotwo`,
+        `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/status/changestatustotwo`,
         {
           method: "PUT",
           headers: {

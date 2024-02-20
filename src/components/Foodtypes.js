@@ -28,7 +28,7 @@ const Foodtypes = () => {
       try {
         const status = 1;
         const response = await fetch(
-          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/findidsofcartitem`,
+          `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/findidsofcartitem`,
           {
             method: "POST",
             headers: {
@@ -72,7 +72,7 @@ const Foodtypes = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/menu/getmenu/byperticularfood/${JSON.parse(
+          `https://polliwog-immune-stallion.ngrok-free.app/menu/getmenu/byperticularfood/${JSON.parse(
             localStorage.getItem("restid")
           )}/${basefoodname}`,
           {
@@ -98,7 +98,7 @@ const Foodtypes = () => {
     const fetchvegnonvegData = async () => {
       try {
         const response = await fetch(
-          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/menu/getmenu/byperticularfood/type/${JSON.parse(
+          `https://polliwog-immune-stallion.ngrok-free.app/menu/getmenu/byperticularfood/type/${JSON.parse(
             localStorage.getItem("restid")
           )}/${type}/${basefoodname}`,
           {
@@ -223,7 +223,7 @@ const Foodtypes = () => {
       setLoading1(true);
       // adding in cart with restid, tableid and menuid
       const response = await fetch(
-        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/addtocart`,
+        `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/addtocart`,
         {
           method: "POST",
           headers: {

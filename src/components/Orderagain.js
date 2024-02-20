@@ -13,7 +13,7 @@ const Orderagain = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/getinvoicemenus/customer`,
+          `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/getinvoicemenus/customer`,
           {
             method: "POST",
             headers: {
@@ -59,7 +59,7 @@ const Orderagain = () => {
       if (result.isConfirmed) {
         const changeData = async () => {
           const response = await fetch(
-            `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/status/changestatustothree/${JSON.parse(
+            `https://polliwog-immune-stallion.ngrok-free.app/ordermenus/status/changestatustothree/${JSON.parse(
               localStorage.getItem("restid")
             )}/${JSON.parse(localStorage.getItem("tableid"))}`,
             {
