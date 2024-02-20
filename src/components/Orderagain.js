@@ -1,11 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import restlog from "../images/restlogo1.png";
 import Swal from "sweetalert2";
 
 const Orderagain = () => {
+  const [cartItems, setCartItems] = useState([]);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/getinvoicemenus/customer`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "ngrok-skip-browser-warning": "true",
+            },
+            body: JSON.stringify({
+              restid: JSON.parse(localStorage.getItem("restid")),
+              tableid: JSON.parse(localStorage.getItem("tableid")),
+              status: 2,
+              cphone: JSON.parse(localStorage.getItem("cphone")),
+            }),
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("data item : ", data);
+          setCartItems(data);
+        } else if (response.status === 404) {
+          setCartItems([]);
+          console.log("Data not found");
+        } else {
+          console.log("Unable to fetch the data from the database");
+        }
+      } catch (error) {
+        console.log("Unable to fetch data");
+      }
+    };
+    fetchData();
+  }, []);
 
   const handalgenerateInvoice = () => {
     Swal.fire({
@@ -20,13 +59,14 @@ const Orderagain = () => {
       if (result.isConfirmed) {
         const changeData = async () => {
           const response = await fetch(
-            `http://localhost:8080/ordermenus/status/changestatustothree/${JSON.parse(
+            `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/status/changestatustothree/${JSON.parse(
               localStorage.getItem("restid")
             )}/${JSON.parse(localStorage.getItem("tableid"))}`,
             {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
+                "ngrok-skip-browser-warning": "true",
               },
             }
           );
@@ -118,6 +158,36 @@ const Orderagain = () => {
             >
               Generate Invoice
             </button>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <div>
+              <div className="orderagain_headingdivs invoice_fontbold">
+                <div className="orderagain_itemheaddiv">ITEM</div>
+                <div>QTY</div>
+                {/* <div className="invoice_pricediv">
+                  <div>PRICE</div>
+                </div>
+                <div>AMOUNT</div> */}
+              </div>
+              <div>
+                {" "}
+                {cartItems &&
+                  cartItems.ordermenus &&
+                  cartItems.ordermenus.map((item, index) => (
+                    <div key={index}>
+                      <div className="orderagain_headingdivs">
+                        <div className="orderagain_itemheaddiv">
+                          {item.name}
+                        </div>
+                        <div>{item.quantity}</div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

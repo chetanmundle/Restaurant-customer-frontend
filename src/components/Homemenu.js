@@ -26,9 +26,17 @@ const Homemenu = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/menu/getallmenus/${JSON.parse(
+          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/menu/getallmenus/${JSON.parse(
             localStorage.getItem("restid")
-          )}`
+          )}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "ngrok-skip-browser-warning": "true",
+              // Add any additional headers if needed
+            },
+          }
         );
 
         if (!response.ok) {
@@ -164,7 +172,7 @@ const Homemenu = () => {
 
       {/* div for loading  */}
       <div className="homemenu_loadingdiv">
-        {loading && <CircularProgress style={{ color: 'yellow' }} />}
+        {loading && <CircularProgress style={{ color: "yellow" }} />}
       </div>
     </div>
   );

@@ -10,18 +10,17 @@ import restlogo from "../images/restlogo1.png";
 const Invoice = () => {
   // const [cartItems, setCartItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-  const [totalBill, setTotalBill] = useState(0);
 
   useEffect(() => {
-    const status = 3;
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/ordermenus/getinvoicemenus/customer`,
+          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/getinvoicemenus/customer`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              "ngrok-skip-browser-warning": "true",
             },
             body: JSON.stringify({
               restid: JSON.parse(localStorage.getItem("restid")),
@@ -31,7 +30,7 @@ const Invoice = () => {
             }),
           }
         );
-  
+
         if (response.ok) {
           const data = await response.json();
           console.log("data item : ", data);
@@ -47,28 +46,8 @@ const Invoice = () => {
       }
     };
     fetchData();
-
-    // const fetchTotalBill = async () => {
-    //   const response = await fetch(
-    //     `http://localhost:8080/ordermenus/getfinalprice/${JSON.parse(
-    //       localStorage.getItem("restid")
-    //     )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
-    //     {
-    //       method: "GET",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-
-    //   if (response.ok) {
-    //     const data = await response.json();
-    //     setTotalBill(data);
-    //   }
-    // };
-    
-    // fetchTotalBill();
   }, []);
+
   return (
     <div className="pay_container">
       <div className="pay_leftarrowdiv">

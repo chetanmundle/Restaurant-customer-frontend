@@ -25,12 +25,12 @@ const VegNonvegFood = () => {
       try {
         const status = 1;
         const response = await fetch(
-          `http://localhost:8080/ordermenus/findidsofcartitem`,
+          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/findidsofcartitem`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              // Add any additional headers if needed
+              "ngrok-skip-browser-warning": "true",
             },
             body: JSON.stringify({
               restid: JSON.parse(localStorage.getItem("restid")),
@@ -69,9 +69,17 @@ const VegNonvegFood = () => {
       try {
         // Fetch data directly within the component
         const response = await fetch(
-          `http://localhost:8080/menu/getallmenus/${JSON.parse(
+          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/menu/getallmenus/${JSON.parse(
             localStorage.getItem("restid")
-          )}`
+          )}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "ngrok-skip-browser-warning": "true",
+              // Add any additional headers if needed
+            },
+          }
         );
 
         if (!response.ok) {
@@ -94,11 +102,12 @@ const VegNonvegFood = () => {
       // adding in cart with restid, tableid and menuid
       setLoading1(true);
       const response = await fetch(
-        `http://localhost:8080/ordermenus/addtocart`,
+        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/addtocart`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "true",
             // Add any additional headers if needed
           },
           body: JSON.stringify({

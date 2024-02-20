@@ -322,6 +322,8 @@ body {
     @apply mt-2;
   }
 
+
+
   .homepage_noffodfound_div {
     @apply text-center mt-5 text-xl italic;
   }
@@ -743,6 +745,15 @@ body {
 
   .orderagain_orderjowbtn {
     @apply bg-yellow-300 text-black font-bold w-44 py-3 rounded-full text-xl ml-1;
+  }
+
+  .orderagain_headingdivs {
+    @apply grid grid-cols-12  mt-5 border;
+    padding-left: 1rem;
+  }
+  .orderagain_itemheaddiv {
+    @apply col-span-8 pl-2;
+    /* text-align: center; */
   }
 
   /* roundeslider div */

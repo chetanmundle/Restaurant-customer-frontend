@@ -18,11 +18,11 @@ const Cart = () => {
     const status = 1;
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:8080/ordermenus/findmenusoftable`,
+        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/findmenusoftable`,
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json","ngrok-skip-browser-warning": "true",
           },
           body: JSON.stringify({
             restid: JSON.parse(localStorage.getItem("restid")),
@@ -51,11 +51,11 @@ const Cart = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:8080/ordermenus/increasequantity/${orderid}`,
+        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/increasequantity/${orderid}`,
         {
           method: "PUT",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json","ngrok-skip-browser-warning": "true",
           },
         }
       );
@@ -75,11 +75,11 @@ const Cart = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:8080/ordermenus/decreasequantity/${orderid}`,
+        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/decreasequantity/${orderid}`,
         {
           method: "PUT",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json","ngrok-skip-browser-warning": "true",
           },
         }
       );

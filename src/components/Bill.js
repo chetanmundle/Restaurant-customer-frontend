@@ -19,11 +19,12 @@ const Bill = () => {
     const status = 1;
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:8080/ordermenus/findmenusoftable`,
+        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/findmenusoftable`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "true",
           },
           body: JSON.stringify({
             restid: JSON.parse(localStorage.getItem("restid")),
@@ -48,13 +49,14 @@ const Bill = () => {
 
     const fetchTotalBill = async () => {
       const response = await fetch(
-        `http://localhost:8080/ordermenus/getfinalprice/${JSON.parse(
+        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/getfinalprice/${JSON.parse(
           localStorage.getItem("restid")
         )}/${JSON.parse(localStorage.getItem("tableid"))}/${status}`,
         {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "true",
           },
         }
       );
@@ -75,11 +77,12 @@ const Bill = () => {
       //   cphone: `${JSON.parse(localStorage.getItem("cphone"))}`,
       // };
       const response = await fetch(
-        `http://localhost:8080/ordermenus/status/changestatustotwo`,
+        `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/ordermenus/status/changestatustotwo`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "true",
           },
           body: JSON.stringify({
             restid: JSON.parse(localStorage.getItem("restid")),
@@ -110,8 +113,7 @@ const Bill = () => {
   return (
     <div className="text-white">
       <div className="bill_seconddiv">
-       
-        <div >
+        <div>
           <Link to={"/cart"}>
             <IoArrowUndoCircle className="cart_leftarrow" />
           </Link>
