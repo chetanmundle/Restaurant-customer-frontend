@@ -132,8 +132,8 @@ const VegNonvegFood = () => {
     } finally {
       setLoading1(false);
     }
+    
   };
-  
 
   const discountfinder = (price, discount) => {
     const d = 100 - discount;
