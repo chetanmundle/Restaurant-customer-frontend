@@ -1290,6 +1290,15 @@ body {
   }
 
   /* Orderagain page tablete css */
+
+  .orderagain_headingdivs {
+    @apply grid grid-cols-12  mt-5 border;
+    padding-left: 1rem;
+  }
+  .orderagain_itemheaddiv {
+    @apply col-span-8 pl-2;
+    /* text-align: center; */
+  }
   .orderagain_conatainer {
     @apply bg-black text-white pb-20;
   }
