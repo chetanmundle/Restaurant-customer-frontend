@@ -46,6 +46,7 @@ const Bill = () => {
         console.log("Unable to fetch the data from the database");
       }
     };
+    
 
     const fetchTotalBill = async () => {
       const response = await fetch(
