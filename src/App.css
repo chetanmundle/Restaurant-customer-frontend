@@ -214,7 +214,7 @@ body {
   /* menupage mobile view css */
   .menulist_container {
     @apply pr-10 bg-black;
-   width: 100vw;
+    width: 100vw;
   }
 
   .menulist_btn_div {
@@ -222,8 +222,6 @@ body {
     width: 76vw;
     margin-left: 12vw;
   }
-
-
 
   .menulist_first_btn {
     @apply ml-5 h-10 w-10 text-black rounded-xl;
@@ -321,8 +319,6 @@ body {
   .homepage_veg_ordernowdiv {
     @apply mt-2;
   }
-
-
 
   .homepage_noffodfound_div {
     @apply text-center mt-5 text-xl italic;
@@ -858,17 +854,17 @@ body {
     font-size: 1.5rem;
   }
   .invoice_logoparentdiv {
-   @apply grid grid-cols-2;
+    @apply grid grid-cols-2;
   }
   .invoice_logodiv {
     text-align: center;
-   height: 7rem;
-   width: 7rem;
-   padding-left: 1rem;
+    height: 7rem;
+    width: 7rem;
+    padding-left: 1rem;
   }
   .invoice_invoicenamediv {
-   @apply font-bold pr-3 text-center mt-3;
-   font-size: 1.5rem;
+    @apply font-bold pr-3 text-center mt-3;
+    font-size: 1.5rem;
   }
   .invoice_cdetailsdiv {
     @apply grid grid-cols-2 mt-3;
@@ -903,7 +899,6 @@ body {
   .font_bold {
     @apply font-bold;
   }
-  
 }
 
 /* media for the tablet view */
@@ -1520,53 +1515,51 @@ body {
   /* css for invocie tablet view */
   .invoice_logoparentdiv {
     @apply grid grid-cols-2;
-   }
-   .invoice_logodiv {
-     text-align: center;
+  }
+  .invoice_logodiv {
+    text-align: center;
     height: 7rem;
     width: 7rem;
     padding-left: 1rem;
-   }
-   .invoice_invoicenamediv {
+  }
+  .invoice_invoicenamediv {
     @apply font-bold pr-3 text-center mt-3;
     font-size: 1.5rem;
-   }
-   .invoice_cdetailsdiv {
-     @apply grid grid-cols-2 mt-3;
-   }
-   .invoice_chead {
-     @apply font-bold ml-3;
-   }
-   .invoice_headingdivs {
-     @apply grid grid-cols-12  mt-5 border;
-   }
-   .invoice_fontbold {
-     @apply font-bold;
-     border: 1px solid #000;
-     padding: 10px;
-   }
-   .invoice_horizontal-line {
-     border: 1px solid black;
-     height: 1px;
-     margin-top: 1rem;
-   }
-   .invoice_itemheaddiv {
-     @apply col-span-5 pl-2;
-     /* text-align: center; */
-   }
-   .invoice_pricediv {
-     @apply col-span-3;
-     text-align: center;
-   }
-   .invoice_subtotalparentdiv {
-     @apply flex justify-between px-16 my-3;
-   }
-   .font_bold {
-     @apply font-bold;
-   }
-  
+  }
+  .invoice_cdetailsdiv {
+    @apply grid grid-cols-2 mt-3;
+  }
+  .invoice_chead {
+    @apply font-bold ml-3;
+  }
+  .invoice_headingdivs {
+    @apply grid grid-cols-12  mt-5 border;
+  }
+  .invoice_fontbold {
+    @apply font-bold;
+    border: 1px solid #000;
+    padding: 10px;
+  }
+  .invoice_horizontal-line {
+    border: 1px solid black;
+    height: 1px;
+    margin-top: 1rem;
+  }
+  .invoice_itemheaddiv {
+    @apply col-span-5 pl-2;
+    /* text-align: center; */
+  }
+  .invoice_pricediv {
+    @apply col-span-3;
+    text-align: center;
+  }
+  .invoice_subtotalparentdiv {
+    @apply flex justify-between px-16 my-3;
+  }
+  .font_bold {
+    @apply font-bold;
+  }
 }
-
 
 /* styles.css */
 .navbar {
@@ -1578,7 +1571,6 @@ body {
   padding: 10px 20px;
   background-color: #333;
   color: #fff;
-  
 }
 
 .logo {
@@ -1591,7 +1583,6 @@ body {
   color: #fff;
   text-decoration: none;
   margin-left: 10px;
-  
 }
 
 @keyframes slideIn {
