@@ -77,7 +77,7 @@ const Firstpage = () => {
   //   setLoading(false); // Set loading to false when navigation is complete
   // });
 
-  const words = ["Food Courtyard"];
+  const words = ["Food Courtyard "];
   const [part, setPart] = useState("");
   const [i, setI] = useState(0);
   const [offset, setOffset] = useState(0);
