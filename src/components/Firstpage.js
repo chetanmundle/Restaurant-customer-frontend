@@ -147,6 +147,12 @@ const Firstpage = () => {
             </button>
           </div>
         </div>
+
+        <div>
+          <div>
+            <div className="firstpage-copyright">Designed and Developed by &#169;Royals WebTech 2024</div>
+          </div>
+        </div>
       </div>
     </div>
   );

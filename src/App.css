@@ -83,7 +83,7 @@ body {
 
 @media only screen and (max-width: 767px) {
 
-
+/* start of loading */
   .pan-loader {
     width: 180px;
     height: 180px;
@@ -218,7 +218,7 @@ body {
     }
   }
   
-
+/*  end of loader  */
 
 
 
@@ -293,7 +293,7 @@ body {
   }
 
   .firstpage_word {
-    position: fixed;
+    /* position: fixed; */
     margin: auto;
     color: white;
     /* font: 700 normal 2.5em 'Tahoma'; */
@@ -306,6 +306,10 @@ body {
 
   /* Add any other styles you need for the component */
 
+  .firstpage-copyright{
+    text-align: center;
+    margin-top: 3rem;
+  }
   .firstpage_btndiv {
     @apply flex justify-center mt-40;
   }
