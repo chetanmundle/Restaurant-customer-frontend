@@ -150,7 +150,9 @@ const Firstpage = () => {
 
         <div>
           <div>
-            <div className="firstpage-copyright">Designed and Developed by &#169;Royals WebTech 2024</div>
+            <div className="firstpage-copyright">
+              Designed and Developed by &#169;<span className="firstpage-companyname" >Royals WebTech</span> 2024
+            </div>
           </div>
         </div>
       </div>

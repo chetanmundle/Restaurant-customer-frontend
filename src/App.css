@@ -310,6 +310,9 @@ body {
     text-align: center;
     margin-top: 3rem;
   }
+  .firstpage-companyname{
+    @apply italic;
+  }
   .firstpage_btndiv {
     @apply flex justify-center mt-40;
   }
