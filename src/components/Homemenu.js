@@ -11,7 +11,6 @@ import Roundslider from "./Roundslider";
 
 import Cardmenu from "./Cardmenu";
 import { CircularProgress } from "@mui/material";
-import Pizza from "./Pizza";
 
 const Homemenu = () => {
   const [foodData, setFoodData] = useState([]);
@@ -163,7 +162,7 @@ const Homemenu = () => {
         {/* horizantal slider of menu page */}
         {!searchText && <Roundslider type={"all"} />}
       </div>
-      <FixedButton currentpage={"home"} />
+     
       {setCopyOfFoodData.length > 0 && (
         <Cardmenu
           copyOfFoodData={copyOfFoodData}
@@ -173,15 +172,25 @@ const Homemenu = () => {
 
       {/* div for loading  */}
       <div className="homemenu_loadingdiv">
-        {loading && (
-          <div className="bill_loading-container">
-            <div className="bill_loading-wrapper">
-              {/* <CircularProgress style={{ color: "red" }} /> */}
-              <Pizza /> 
-            </div>
-          </div>
-        )}
+        {loading &&  <div className="bill_loading-container">
+                <div className="bill_loading-wrapper">
+                  {/* <CircularProgress style={{ color: "red" }} /> */}
+                  {/* <Pizza /> */}
+                  <div class="container-main">
+                    <div class="pan-loader">
+                      <div class="loader"></div>
+                      <div class="pan-container">
+                        <div class="pan"></div>
+                        <div class="handle"></div>
+                      </div>
+                      <div class="shadow"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>}
       </div>
+
+      <FixedButton currentpage={"home"} />
     </div>
   );
 };

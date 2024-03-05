@@ -273,7 +273,17 @@ const FoodDetails = () => {
           <div className="bill_loading-container">
             <div className="bill_loading-wrapper">
               {/* <CircularProgress style={{ color: "red" }} /> */}
-              <Pizza/>
+              {/* <Pizza/> */}
+              <div class="container-main">
+                <div class="pan-loader">
+                  <div class="loader"></div>
+                  <div class="pan-container">
+                    <div class="pan"></div>
+                    <div class="handle"></div>
+                  </div>
+                  <div class="shadow"></div>
+                </div>
+              </div>
             </div>
           </div>
           // <div>
