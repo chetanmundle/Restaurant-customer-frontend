@@ -8,6 +8,7 @@ import { IoArrowUndoCircle } from "react-icons/io5";
 import FixedButton from "./Fixedbutton";
 import { Link } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
+import Pizza from "./Pizza";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -163,7 +164,8 @@ const Cart = () => {
         {loading && (
           <div className="bill_loading-container">
             <div className="bill_loading-wrapper">
-              <CircularProgress style={{ color: "red" }} />
+              {/* <CircularProgress style={{ color: "red" }} /> */}
+              <Pizza/>
             </div>
           </div>
         )}

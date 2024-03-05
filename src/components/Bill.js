@@ -6,6 +6,7 @@ import restContext from "../context/restaurant/restContext";
 import Swal from "sweetalert2";
 import { CircularProgress } from "@mui/material";
 import { IoArrowUndoCircle } from "react-icons/io5";
+import Pizza from "./Pizza";
 
 const Bill = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -181,7 +182,8 @@ const Bill = () => {
             {loading && (
               <div className="bill_loading-container">
                 <div className="bill_loading-wrapper">
-                  <CircularProgress style={{ color: "red" }} />
+                  {/* <CircularProgress style={{ color: "red" }} /> */}
+                  <Pizza/>
                 </div>
               </div>
             )}

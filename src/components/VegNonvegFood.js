@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Roundslider from "./Roundslider";
 import { CircularProgress } from "@mui/material";
+import Pizza from "./Pizza";
 
 const VegNonvegFood = () => {
   const { vegnonvegdata } = useParams();
@@ -299,7 +300,15 @@ const VegNonvegFood = () => {
         <div>
           {/* div for loading  */}
           <div className="homemenu_loadingdiv">
-            {loading && <CircularProgress style={{ color: "yellow" }} />}
+            {loading &&
+            //  <CircularProgress style={{ color: "yellow" }} />
+            <div className="bill_loading-container">
+              <div className="bill_loading-wrapper">
+                {/* <CircularProgress style={{ color: "red" }} /> */}
+                <Pizza />
+              </div>
+            </div>
+             }
           </div>
         </div>
         <div>
@@ -307,7 +316,8 @@ const VegNonvegFood = () => {
           {loading1 && (
             <div className="bill_loading-container">
               <div className="bill_loading-wrapper">
-                <CircularProgress style={{ color: "red" }} />
+                {/* <CircularProgress style={{ color: "red" }} /> */}
+                <Pizza />
               </div>
             </div>
           )}

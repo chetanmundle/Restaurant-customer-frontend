@@ -11,6 +11,7 @@ import Roundslider from "./Roundslider";
 
 import Cardmenu from "./Cardmenu";
 import { CircularProgress } from "@mui/material";
+import Pizza from "./Pizza";
 
 const Homemenu = () => {
   const [foodData, setFoodData] = useState([]);
@@ -172,7 +173,14 @@ const Homemenu = () => {
 
       {/* div for loading  */}
       <div className="homemenu_loadingdiv">
-        {loading && <CircularProgress style={{ color: "yellow" }} />}
+        {loading && (
+          <div className="bill_loading-container">
+            <div className="bill_loading-wrapper">
+              {/* <CircularProgress style={{ color: "red" }} /> */}
+              <Pizza /> 
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

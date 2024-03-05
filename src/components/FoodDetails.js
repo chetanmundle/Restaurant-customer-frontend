@@ -8,6 +8,7 @@ import { Link, useParams } from "react-router-dom";
 import restContext from "../context/restaurant/restContext";
 import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
+import Pizza from "./Pizza";
 
 const FoodDetails = () => {
   // const [foodData, setFoodData] = useState(restdata.foodData);
@@ -198,71 +199,6 @@ const FoodDetails = () => {
                   <div className="">{currentFood.name}</div>
                   <div className="text-right">{currentFood.price} RS</div>
                 </div>
-                <div className="foodid_starmaindiv">
-                  <div></div>
-                  <div
-                    onClick={() => {
-                      handalRating(0);
-                    }}
-                  >
-                    {/* <CiStar /> */}
-                    {stars[0] ? (
-                      <FaStar className="fooddetails_yellostar" />
-                    ) : (
-                      <CiStar />
-                    )}
-                  </div>
-                  <div
-                    onClick={() => {
-                      handalRating(1);
-                    }}
-                  >
-                    {/* <CiStar /> */}
-                    {stars[1] ? (
-                      <FaStar className="fooddetails_yellostar" />
-                    ) : (
-                      <CiStar />
-                    )}
-                  </div>
-                  <div
-                    onClick={() => {
-                      handalRating(2);
-                    }}
-                  >
-                    {/* <CiStar /> */}
-                    {stars[2] ? (
-                      <FaStar className="fooddetails_yellostar" />
-                    ) : (
-                      <CiStar />
-                    )}
-                  </div>
-                  <div
-                    onClick={() => {
-                      handalRating(3);
-                    }}
-                  >
-                    {/* <CiStar /> */}
-                    {stars[3] ? (
-                      <FaStar className="fooddetails_yellostar" />
-                    ) : (
-                      <CiStar />
-                    )}
-                  </div>
-                  <div
-                    onClick={() => {
-                      handalRating(4);
-                    }}
-                  >
-                    {/* <FaStar className="text-yellow-500"/> */}
-                    {/* <CiStar /> */}
-                    {stars[4] ? (
-                      <FaStar className="fooddetails_yellostar" />
-                    ) : (
-                      <CiStar />
-                    )}
-                  </div>
-                  <div className="foodid_review">(reviews)</div>
-                </div>
 
                 <div className="foodid_fooddeatilsdiv">Food Details</div>
                 <br />
@@ -336,9 +272,17 @@ const FoodDetails = () => {
         {loading && (
           <div className="bill_loading-container">
             <div className="bill_loading-wrapper">
-              <CircularProgress style={{ color: "red" }} />
+              {/* <CircularProgress style={{ color: "red" }} /> */}
+              <Pizza/>
             </div>
           </div>
+          // <div>
+          //   <div className="loader-pizza-parent-container">
+          //     <div className="loader-pizza">
+          //       <Pizza />
+          //     </div>
+          //   </div>
+          // </div>
         )}
       </div>
     </div>

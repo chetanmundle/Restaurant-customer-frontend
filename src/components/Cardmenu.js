@@ -5,6 +5,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
+import Pizza from "./Pizza";
 
 const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
   const [cartItem, setCartItem] = useState([]);
@@ -216,7 +217,8 @@ const Cardmenu = ({ copyOfFoodData, setCopyOfFoodData }) => {
         {loading && (
           <div className="bill_loading-container">
             <div className="bill_loading-wrapper">
-              <CircularProgress style={{ color: "red" }} />
+              {/* <CircularProgress style={{ color: "red" }} /> */}
+              <Pizza/>
             </div>
           </div>
         )}

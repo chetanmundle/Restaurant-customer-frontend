@@ -1,47 +1,39 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import Pizza from "./Pizza";
 
 const Test2 = () => {
-  useEffect(() => {
-    const fetchdata = async () => {
-      try {
-        const response = await fetch(
-          `https://44a6-2405-201-1003-980c-5d0f-9bc8-3b67-dc74.ngrok-free.app/restaurant/getall`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "ngrok-skip-browser-warning": "true",
-            },
-          }
-        );
-
-        if (response.ok) {
-          const data = await response.json(); // Await the response.json() to properly get the data
-
-          console.log("DAta : ", data);
-        } else if (response.status === 404) {
-          console.log("404");
-        } else {
-          console.error(
-            "Error fetching data:",
-            response.status,
-            response.statusText
-          );
-          // Handle error cases here, if needed
-        }
-      } catch (error) {
-        console.error("Error in fetchdata function:", error);
-        // Handle any unexpected errors here
-      } finally {
-        // setLoading(false);
-      }
-    };
-
-    fetchdata();
-  }, []);
-
-  return <div>Hello</div>;
+  return (
+    <div>
+      <div className="page-wrapper">
+        <div>
+          Chetan
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            corrupti ad sint asperiores nihil nisi similique aliquid a. Et aliquid
+            quis quia dignissimos. Iure accusantium voluptate veniam a voluptates
+            unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo qui
+            iure officiis, reprehenderit autem, beatae eligendi itaque quas quis cum
+            suscipit, dolores ipsa minima eveniet fugit nihil laborum ipsum facere?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
+            facere modi illo hic aperiam corporis accusantium ab quam recusandae,
+            quis quas laborum cum distinctio, voluptatem sequi eveniet accusamus
+            vitae dicta? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Rerum laudantium earum blanditiis cumque tenetur molestias quas voluptas
+            ut ullam et, rem, nam minima commodi unde alias atque officiis expedita
+            quasi! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+            voluptatum aspernatur asperiores omnis, placeat dolorum repellendus est
+            qui iusto sed ab molestias tempore veniam eveniet maiores non suscipit
+            saepe perspiciatis!
+          </div>
+        </div>
+      </div>
+      <div className="loader-pizza-parent-container">
+        <div className="loader-pizza">
+          <Pizza />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Test2;

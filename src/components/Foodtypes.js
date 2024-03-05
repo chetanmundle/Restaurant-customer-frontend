@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
+import Pizza from "./Pizza";
 
 const Foodtypes = () => {
   const [selectsort, setSelectSort] = useState("");
@@ -415,7 +416,15 @@ const Foodtypes = () => {
       {/* div for loading  */}
       <div>
         <div className="homemenu_loadingdiv">
-          {loading && <CircularProgress style={{ color: "yellow" }} />}
+          {loading &&
+          //  <CircularProgress style={{ color: "yellow" }} />
+          <div className="bill_loading-container">
+            <div className="bill_loading-wrapper">
+              {/* <CircularProgress style={{ color: "red" }} /> */}
+              <Pizza/>
+            </div>
+          </div>
+          }
         </div>
       </div>
       <div>
@@ -423,7 +432,8 @@ const Foodtypes = () => {
         {loading1 && (
           <div className="bill_loading-container">
             <div className="bill_loading-wrapper">
-              <CircularProgress style={{ color: "red" }} />
+              {/* <CircularProgress style={{ color: "red" }} /> */}
+              <Pizza/>
             </div>
           </div>
         )}
